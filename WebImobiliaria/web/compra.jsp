@@ -54,7 +54,7 @@
                     Bairro: <input type="text" name="bairro" />  
                     Avenida: <input type="text" name="avenida" />  
                     Estado:
-                    <select name="tipo">
+                    <select name="estado">
                         <option value="Acre - AC">AC</option>
                         <option value="Alagoas - AL">AL</option>
                         <option value="Amapá - AP">AP</option>
