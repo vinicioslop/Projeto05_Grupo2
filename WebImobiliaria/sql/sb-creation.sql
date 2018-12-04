@@ -16,6 +16,6 @@ insert into users values
 insert into users values
     (default, 'ADMIN', 'Vinícius Lopes Lima', 'vinicioslop', 1509442);
 insert into users values
-    (default, 'FUNCIONARIO', 'FUNCIONARIO', 'funcinario', 1509442);
+    (default, 'FUNCIONARIO', 'FUNCIONARIO', 'funcionario', 1509442);
 insert into users values
     (default, 'VISITANTE', 'VISITANTE', 'visitante', 1509442);
