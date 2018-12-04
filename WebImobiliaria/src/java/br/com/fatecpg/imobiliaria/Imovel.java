@@ -152,6 +152,7 @@ public class Imovel {
     public static void addImovel(String bairro, String avenida, String estado, String pessoa, String tipo,
                                 String quarto, String banheiro, String suite, String garagem, String tamanho)
             throws Exception{
+        
         String SQL = "INSERT INTO IMOVEL VALUES (default, ? , ? , ? , ?, ?, ?, ?, ?, ?, ?)";
         Object parameters[] = {bairro, avenida, estado, pessoa, tipo, quarto, banheiro, suite, garagem, tamanho};
         DatabaseConnector.execute(SQL, parameters);

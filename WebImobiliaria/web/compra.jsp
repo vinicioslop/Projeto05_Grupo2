@@ -38,6 +38,9 @@
     <body>
         <%@include file="WEB-INF/jspf/header.jspf" %>
         <h1>Imóveis</h1>
+        <%
+            int opcoes=100;
+        %>
         <% if (session.getAttribute("user") == null) { %>
             <h2>É preciso estar autenticado para acessar este recurso</h2>
         <% } else { 
@@ -95,11 +98,35 @@
                         <option value="Loja">Loja</option>
                         <option value="Prédio">Prédio</option>
                     </select>  
-                    Quartos: <input type="text" name="quarto" />  
-                    Banheiro: <input type="text" name="banheiro" />  
-                    Suite: <input type="text" name="suite" />  
-                    Garagem: <input type="text" name="garagem" />  
-                    Tamanho: <input type="text" name="tamanho" />  
+                    Quartos: 
+                    <select name="quarto">
+                        <option value="Não possui">Não possui</option>
+                        <% for(int x=0;x<opcoes;x++){ %>
+                        <option value="<%=x+1%>"><%=x+1%></option>
+                        <%}%>
+                    </select>
+                    Banheiro:
+                    <select name="banheiro">
+                        <option value="Não possui">Não possui</option>
+                        <% for(int x=0;x<opcoes;x++){ %>
+                        <option value="<%=x+1%>"><%=x+1%></option>
+                        <%}%>
+                    </select>
+                    Suite:
+                    <select name="suite">
+                        <option value="Não possui">Não possui</option>
+                        <% for(int x=0;x<opcoes;x++){ %>
+                        <option value="<%=x+1%>"><%=x+1%></option>
+                        <%}%>
+                    </select>
+                    Garagem:
+                    <select name="garagem">
+                        <option value="Não possui">Não possui</option>
+                        <% for(int x=0;x<opcoes;x++){ %>
+                        <option value="<%=x+1%>"><%=x+1%></option>
+                        <%}%>
+                    </select>
+                    Tamanho: <input type="text" name="tamanho" />
                     <input type="submit" name="formNewImovel" value="Cadastrar" />
                 </form>
             </fieldset>

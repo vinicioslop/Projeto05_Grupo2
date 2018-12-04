@@ -19,11 +19,11 @@ create table imovel (
     estado varchar(200) not null,
     pessoa varchar(200) not null,
     tipo varchar(100) not null,
-    quarto varchar(20),
-    banheiro varchar(20),
-    suite varchar(20),
-    garagem varchar(20),
-    tamanho varchar(20)
+    quarto varchar(255) default '0',
+    banheiro varchar(255) default '0',
+    suite varchar(255) default '0',
+    garagem varchar(255) default '0',
+    tamanho varchar(255) default '0'
     );
 
 insert into imovel values
