@@ -53,7 +53,36 @@
                 <form>
                     Bairro: <input type="text" name="bairro" />  
                     Avenida: <input type="text" name="avenida" />  
-                    Estado: <input type="text" name="estado" />  
+                    Estado:
+                    <select name="tipo">
+                        <option value="Acre - AC">AC</option>
+                        <option value="Alagoas - AL">AL</option>
+                        <option value="Amapá - AP">AP</option>
+                        <option value="Amazonas - AM">AM</option>
+                        <option value="Bahia - BA">BA</option>
+                        <option value="Ceará - CE">CE</option>
+                        <option value="Distrito Federeal - DF">DF</option>
+                        <option value="Espírito Santo - ES">ES</option>
+                        <option value="Goiás - GO">GO</option>
+                        <option value="Maranhão - MA">MA</option>
+                        <option value="Mato Grosso - MT">MT</option>
+                        <option value="Mato Grosso do Sul - MS">MS</option>
+                        <option value="Minas Gerais - MG">MG</option>
+                        <option value="Pará - PA">PA</option>
+                        <option value="Paraíba - PB">PB</option>
+                        <option value="Paraná - PR">PR</option>
+                        <option value="Pernambuco - PE">PE</option>
+                        <option value="Piauí - PI">PI</option>
+                        <option value="Rio de Janeiro - RJ">RJ</option>
+                        <option value="Rio Grande do Norte - RN">RN</option>
+                        <option value="Rio Grande do Sul - RS">RS</option>
+                        <option value="Rondônia - RO">RO</option>
+                        <option value="Roraima - RR">RR</option>
+                        <option value="Santa Catarina - SC">SC</option>
+                        <option value="São Paulo - SP">SP</option>
+                        <option value="Sergipe - SE">SE</option>
+                        <option value="Tocantins - TO">TO</option>
+                    </select> 
                     Pessoa: <input type="text" name="pessoa" />  
                     Tipo: 
                     <select name="tipo">
