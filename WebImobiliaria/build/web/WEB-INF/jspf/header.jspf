@@ -38,7 +38,7 @@
         <input type="submit" name="formLoggoff" value="Sair" />
     </form>
     <h2>
-        <a href="<%= path %>/index.jsp">Inicio</a>
+        <a href="<%= path %>/home.jsp">Inicio</a>
         <% if (user.getRole().equals("ADMIN")) { %>
             || <a href="<%= path %>/admin/users.jsp" />Usuários</a>
         <% } %>

@@ -48,7 +48,8 @@
                     Papel: 
                     <select name="role">
                         <option value="ADMIN">ADMIN</option>
-                        <option value="OPERADOR">OPERADOR</option>
+                        <option value="FUNCIONARIO">FUNCIONARIO</option>
+                        <option value="VISITANTE">VISITANTE</option>
                     </select>
                     Usuário: <input type="text" name="login" />   
                     Senha: <input type="password" name="pass" />

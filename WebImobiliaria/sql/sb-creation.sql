@@ -10,5 +10,12 @@ create table users (
 );
 
 insert into users values
-    (default, 'ADMIN', 'Administrador', 'admin', 1509442),
-    (default, 'OPERADOR', 'Fulano da Silva', 'fulano', 1509442);
+    (default, 'ADMIN', 'Ana Paula', 'anapaula', 1509442);
+insert into users values
+    (default, 'ADMIN', 'Nicolle Medina', 'nicolle', 1509442);
+insert into users values
+    (default, 'ADMIN', 'Vinícius Lopes Lima', 'vinicioslop', 1509442);
+insert into users values
+    (default, 'FUNCIONARIO', 'FUNCIONARIO', 'funcinario', 1509442);
+insert into users values
+    (default, 'VISITANTE', 'VISITANTE', 'visitante', 1509442);
