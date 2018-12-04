@@ -19,7 +19,7 @@ create table imovel (
     estado varchar(200) not null,
     pessoa varchar(200) not null,
     tipo varchar(100) not null,
-    quartos varchar(20),
+    quarto varchar(20),
     banheiro varchar(20),
     suite varchar(20),
     garagem varchar(20),

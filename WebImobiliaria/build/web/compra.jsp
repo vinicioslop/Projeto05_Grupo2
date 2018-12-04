@@ -2,23 +2,29 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%  String error = null;
-    if (request.getParameter("formDeleteUser") != null){
+    if (request.getParameter("formDeleteImovel") != null){
         try{
             long id = Long.parseLong(request.getParameter("id"));
-            User.removeUser(id);
+            Imovel.removeImovel(id);
             response.sendRedirect(request.getRequestURI());
         } catch (Exception e) {
             error = e.getMessage();
         }
     }    
     
-    if (request.getParameter("formNewUser") != null){
-        String name = request.getParameter("name");
-        String role = request.getParameter("role");
-        String login = request.getParameter("login");
-        long passwordHash = request.getParameter("pass").hashCode();
+    if (request.getParameter("formNewImovel") != null){
+        String bairro = request.getParameter("bairro");
+        String avenida = request.getParameter("avenida");
+        String estado = request.getParameter("estado");
+        String pessoa = request.getParameter("pessoa");
+        String tipo = request.getParameter("tipo");
+        String quarto = request.getParameter("quarto");
+        String banheiro = request.getParameter("banheiro");
+        String suite = request.getParameter("suite");
+        String garagem = request.getParameter("garagem");
+        String tamanho = request.getParameter("tamanho");
         try {
-            User.addUser(role, name, login, passwordHash);
+            Imovel.addImovel(bairro, avenida, estado, pessoa, tipo, quarto, banheiro, suite, garagem, tamanho);
             response.sendRedirect(request.getRequestURI());
         } catch (Exception e){
             error = e.getMessage();
@@ -27,11 +33,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Usuários - ParkingWebApp</title>
+        <title>Imobiliária - FatecPG</title>
     </head>
     <body>
         <%@include file="WEB-INF/jspf/header.jspf" %>
-        <h1>Usuários</h1>
+        <h1>Imóveis</h1>
         <% if (session.getAttribute("user") == null) { %>
             <h2>É preciso estar autenticado para acessar este recurso</h2>
         <% } else { 
@@ -45,16 +51,27 @@
             <fieldset>
                 <legend>Novo usuário</legend>
                 <form>
-                    Nome: <input type="text" name="name" />
-                    Papel: 
-                    <select name="role">
-                        <option value="ADMIN">ADMIN</option>
-                        <option value="FUNCIONARIO">FUNCIONARIO</option>
-                        <option value="VISITANTE">VISITANTE</option>
-                    </select>
-                    Usuário: <input type="text" name="login" />   
-                    Senha: <input type="password" name="pass" />
-                    <input type="submit" name="formNewUser" value="Cadastrar" />
+                    Bairro: <input type="text" name="bairro" />  
+                    Avenida: <input type="text" name="avenida" />  
+                    Estado: <input type="text" name="estado" />  
+                    Pessoa: <input type="text" name="pessoa" />  
+                    Tipo: 
+                    <select name="tipo">
+                        <option value="Apartamento">Apartamento</option>
+                        <option value="Casa">Casa</option>
+                        <option value="Chácara">Chácara</option>
+                        <option value="Cobertura">Cobertura</option>
+                        <option value="Fazenda">Fazenda</option>
+                        <option value="Galpão">Galpão</option>
+                        <option value="Loja">Loja</option>
+                        <option value="Prédio">Prédio</option>
+                    </select>  
+                    Quartos: <input type="text" name="quarto" />  
+                    Banheiro: <input type="text" name="banheiro" />  
+                    Suite: <input type="text" name="suite" />  
+                    Garagem: <input type="text" name="garagem" />  
+                    Tamanho: <input type="text" name="tamanho" />  
+                    <input type="submit" name="formNewImovel" value="Cadastrar" />
                 </form>
             </fieldset>
             <br>
@@ -92,7 +109,7 @@
                             <td>
                                 <form>
                                     <input type="hidden" name="id" value="<%= i.getId() %>" />
-                                    <input type="submit" name="formDeleteUser" value="Remover" />
+                                    <input type="submit" name="formDeleteImovel" value="Remover" />
                                 </form>
                             </td>
                         </tr>
