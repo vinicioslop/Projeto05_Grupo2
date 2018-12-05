@@ -39,7 +39,7 @@
     </form>
     <h2>
         <a href="<%= path %>/home.jsp">Inicio</a>
-        || <a href="<%= path %>/compra.jsp">Compra de Imóveis</a>
+        || <a href="<%= path %>/compra.jsp" />Imóveis</a>
         <% if (user.getRole().equals("ADMIN")) { %>
         || <a href="<%= path %>/admin/users.jsp" />Usuários</a>
         <% } %>
