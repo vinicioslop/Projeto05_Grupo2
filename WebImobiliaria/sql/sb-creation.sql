@@ -48,7 +48,7 @@ insert into imovel values
     'Galeria Imobiliária', 'Galpão', default, '5', default, '10', '1790 m²', 7200000);
 insert into imovel values
     (default, default, 'Moema', 'Avenida Moema', 'São Paulo - SP',
-    'Galeria Imobiliária', 'Loja', default, '1', default, default, '202 m²', 2300000);
+    'Beltrano', 'Loja', default, '1', default, default, '202 m²', 2300000);
 
 insert into users values
     (default, 'ADMIN', 'Ana Paula', 'anapaula', 1509442);
