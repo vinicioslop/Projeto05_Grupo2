@@ -3,7 +3,7 @@ create table users (
     id BIGINT not null primary key
         generated ALWAYS as identity
         (start with 1, INCREMENT by 1),
-    role varchar(200) not null,
+    role varchar(200) not null default 'USUARIO',
     name varchar (200) not null,
     login varchar (20) not null,
     passwordHash BIGINT not null
@@ -59,4 +59,4 @@ insert into users values
 insert into users values
     (default, 'FUNCIONARIO', 'FUNCIONARIO', 'funcionario', 1509442);
 insert into users values
-    (default, 'VISITANTE', 'VISITANTE', 'visitante', 1509442);
+    (default, 'USUARIO', 'USUARIO', 'usuario', 1509442);
