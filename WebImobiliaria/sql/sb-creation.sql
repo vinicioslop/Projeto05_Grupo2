@@ -20,17 +20,35 @@ create table imovel (
     estado varchar(200) not null,
     pessoa varchar(200) not null,
     tipo varchar(100) not null,
-    quarto varchar(255) default '0',
-    banheiro varchar(255) default '0',
-    suite varchar(255) default '0',
-    garagem varchar(255) default '0',
-    tamanho varchar(255) default '0',
+    quarto varchar(255) default 'Não possui',
+    banheiro varchar(255) default 'Não possui',
+    suite varchar(255) default 'Não possui',
+    garagem varchar(255) default 'Não possui',
+    tamanho varchar(255) default 'Não possui',
     preco BIGINT not null
     );
 
 insert into imovel values
+    (default, default, 'Buritis', 'Rua Rubens Caporali Ribeiro', 'Minas Gerais - MG',
+    'MIP', 'Apartamento', '4', '1', '1', '4', '211 m²', 699000);
+insert into imovel values
+    (default, 'Aluguel', 'Santana', 'Rua Antonio Pedro Figueiredo', 'São Paulo - SP',
+    'Excellence Imóveis', 'Casa', '3', '3', '3', '4', '233 m²', 780000);
+insert into imovel values
+    (default, default, 'Londrina', 'Matheus Leme', 'Minas Gerais - MG',
+    'SALIS IMOVEIS BH', 'Chácara', '2', '1', default, '2', '2.500 m²', 170000);
+insert into imovel values
     (default, default, 'Jardins', 'Avenida Paulista', 'São Paulo - SP',
-    'Ciclano', 'Cobertura', '5', '3', '2', '2', '150', 20000);
+    'Ciclano', 'Cobertura', '5', '3', '2', '2', '150 m²', 20000);
+insert into imovel values
+    (default, 'Aluguel', 'Granja', 'Avenida Paulista', 'Ceará - CE',
+    'Nelson', 'Fazenda', '4', '3', '2', '10', '25830000 m²', 3000000);
+insert into imovel values
+    (default, default, 'Parque Industrial Lagoinha', 'Rua Doutor Hugo Fortes', 'São Paulo - SP',
+    'Galeria Imobiliária', 'Galpão', default, '5', default, '10', '1790 m²', 7200000);
+insert into imovel values
+    (default, default, 'Moema', 'Avenida Moema', 'São Paulo - SP',
+    'Galeria Imobiliária', 'Loja', default, '1', default, default, '202 m²', 2300000);
 
 insert into users values
     (default, 'ADMIN', 'Ana Paula', 'anapaula', 1509442);
