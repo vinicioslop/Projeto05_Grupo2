@@ -13,6 +13,7 @@ import java.util.ArrayList;
  */
 public class Imovel {
     private long id;
+    private String disponibilidade;
     private String bairro;
     private String avenida;
     private String estado;
@@ -25,8 +26,9 @@ public class Imovel {
     private String tamanho;
     private long preco;
 
-    public Imovel(long id, String bairro, String avenida, String estado, String pessoa, String tipo, String quarto, String banheiro, String suite, String garagem, String tamanho, long preco) {
+    public Imovel(long id, String disponibilidade, String bairro, String avenida, String estado, String pessoa, String tipo, String quarto, String banheiro, String suite, String garagem, String tamanho, long preco) {
         this.id = id;
+        this.disponibilidade = disponibilidade;
         this.bairro = bairro;
         this.avenida = avenida;
         this.estado = estado;
@@ -46,6 +48,14 @@ public class Imovel {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getDisponibilidade() {
+        return disponibilidade;
+    }
+
+    public void setDisponibilidade(String disponibilidade) {
+        this.disponibilidade = disponibilidade;
     }
 
     public String getBairro() {
@@ -135,7 +145,7 @@ public class Imovel {
     public void setPreco(long preco) {
         this.preco = preco;
     }
-    
+
     public static ArrayList<Imovel> getImoveis() throws Exception {
         String SQL = "SELECT * FROM IMOVEL";
         ArrayList<Imovel> imoveis = new ArrayList<>();
@@ -144,9 +154,9 @@ public class Imovel {
             Object row[] = list.get(i);
             Imovel u = new Imovel(
                     (long) row[0], 
-                    (String) row[1], 
-                    (String) row[2], 
-                    (String) row[3],
+                    (String) row[1],
+                    (String) row[2],
+                    (String) row[3], 
                     (String) row[4],
                     (String) row[5],
                     (String) row[6],
@@ -154,19 +164,20 @@ public class Imovel {
                     (String) row[8],
                     (String) row[9],
                     (String) row[10],
-                    (long) row[11]);
+                    (String) row[11],
+                    (long) row[12]);
             imoveis.add(u);
         }
         return imoveis;
     }
     
-    public static void addImovel(String bairro, String avenida, String estado, String pessoa, String tipo,
+    public static void addImovel(String comercio ,String bairro, String avenida, String estado, String pessoa, String tipo,
                                 String quarto, String banheiro, String suite, String garagem, String tamanho,
                                 long preco)
             throws Exception{
         
-        String SQL = "INSERT INTO IMOVEL VALUES (default, ? , ? , ? , ?, ?, ?, ?, ?, ?, ?, ?)";
-        Object parameters[] = {bairro, avenida, estado, pessoa, tipo, quarto, banheiro, suite, garagem, tamanho, preco};
+        String SQL = "INSERT INTO IMOVEL VALUES (default, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        Object parameters[] = {comercio, bairro, avenida, estado, pessoa, tipo, quarto, banheiro, suite, garagem, tamanho, preco};
         DatabaseConnector.execute(SQL, parameters);
     }
     

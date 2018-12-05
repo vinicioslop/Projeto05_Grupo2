@@ -13,6 +13,7 @@
     }    
     
     if (request.getParameter("formNewImovel") != null){
+        String disponibilidade = request.getParameter("comercio");
         String bairro = request.getParameter("bairro");
         String avenida = request.getParameter("avenida");
         String estado = request.getParameter("estado");
@@ -25,7 +26,7 @@
         String tamanho = request.getParameter("tamanho");
         long preco = Long.parseLong(request.getParameter("preco"));
         try {
-            Imovel.addImovel(bairro, avenida, estado, pessoa, tipo, quarto, banheiro, suite, garagem, tamanho, preco);
+            Imovel.addImovel(disponibilidade, bairro, avenida, estado, pessoa, tipo, quarto, banheiro, suite, garagem, tamanho, preco);
             response.sendRedirect(request.getRequestURI());
         } catch (Exception e){
             error = e.getMessage();
@@ -42,20 +43,15 @@
         <%
             int opcoes=100;
         %>
-        <% if (session.getAttribute("user") == null) { %>
-            <h2>É preciso estar autenticado para acessar este recurso</h2>
-        <% } else { 
-            User user = (User) session.getAttribute("user");
-            if (!user.getRole().equals("ADMIN")) { %>
-                <h2>Você não tem permissão para acessar este recurso!</h2>
-            <% } else { 
-                if (errorMessage != null) { %>
-                    <h2 style="color: red"><%= error %></h2>
-                <% } %>
             <fieldset>
-                <legend>Novo usuário</legend>
+                <legend>Novo imóvel</legend>
                 <form>
-                    Bairro: <input type="text" name="bairro" />  
+                    Disponibilidade:
+                    <select name="disponibilidade">
+                        <option value="Compra">Compra</option>
+                        <option value="Aluguel">Aluguel</option>
+                    </select>
+                    Bairro: <input type="text" name="bairro" />
                     Avenida: <input type="text" name="avenida" />  
                     Estado:
                     <select name="estado">
@@ -133,10 +129,14 @@
                 </form>
             </fieldset>
             <br>
+            
+            <%User user = (User) session.getAttribute("user");%>
+            
             <table border="1">
                 <thead>
                     <tr>
                         <th>ID</th>
+                        <th>Disponibilidade</th>
                         <th>Bairro</th>
                         <th>Avenida</th>
                         <th>Estado</th>
@@ -155,6 +155,7 @@
                     <% for (Imovel i : Imovel.getImoveis()) { %>
                         <tr>
                             <td><%= i.getId() %></td>
+                            <td><%= i.getDisponibilidade() %></td>
                             <td><%= i.getBairro() %></td>
                             <td><%= i.getAvenida() %></td>
                             <td><%= i.getEstado() %></td>
@@ -173,10 +174,8 @@
                                 </form>
                             </td>
                         </tr>
-                    <% } %>
+                    <%}%>
                 </tbody>
             </table>
-            <% } %>
-        <% } %>
     </body>
 </html>

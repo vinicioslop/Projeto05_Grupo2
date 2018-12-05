@@ -14,6 +14,7 @@ create table imovel (
     id BIGINT not null primary key
         generated ALWAYS as identity
         (start with 1, INCREMENT by 1),
+    disponibilidade varchar(100) not null default 'Compra',
     bairro varchar(200) not null,
     avenida varchar(200) not null,
     estado varchar(200) not null,
@@ -28,7 +29,7 @@ create table imovel (
     );
 
 insert into imovel values
-    (default, 'Jardins', 'Avenida Paulista', 'São Paulo - SP',
+    (default, default, 'Jardins', 'Avenida Paulista', 'São Paulo - SP',
     'Ciclano', 'Cobertura', '5', '3', '2', '2', '150', 20000);
 
 insert into users values
