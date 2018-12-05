@@ -23,8 +23,9 @@ public class Imovel {
     private String suite;
     private String garagem;
     private String tamanho;
+    private long preco;
 
-    public Imovel(long id, String bairro, String avenida, String estado, String pessoa, String tipo, String quarto, String banheiro, String suite, String garagem, String tamanho) {
+    public Imovel(long id, String bairro, String avenida, String estado, String pessoa, String tipo, String quarto, String banheiro, String suite, String garagem, String tamanho, long preco) {
         this.id = id;
         this.bairro = bairro;
         this.avenida = avenida;
@@ -36,6 +37,7 @@ public class Imovel {
         this.suite = suite;
         this.garagem = garagem;
         this.tamanho = tamanho;
+        this.preco = preco;
     }
 
     public long getId() {
@@ -101,8 +103,8 @@ public class Imovel {
     public void setBanheiro(String banheiro) {
         this.banheiro = banheiro;
     }
-    
-        public String getSuite() {
+
+    public String getSuite() {
         return suite;
     }
 
@@ -125,6 +127,14 @@ public class Imovel {
     public void setTamanho(String tamanho) {
         this.tamanho = tamanho;
     }
+
+    public long getPreco() {
+        return preco;
+    }
+
+    public void setPreco(long preco) {
+        this.preco = preco;
+    }
     
     public static ArrayList<Imovel> getImoveis() throws Exception {
         String SQL = "SELECT * FROM IMOVEL";
@@ -143,18 +153,20 @@ public class Imovel {
                     (String) row[7],
                     (String) row[8],
                     (String) row[9],
-                    (String) row[10]);
+                    (String) row[10],
+                    (long) row[11]);
             imoveis.add(u);
         }
         return imoveis;
     }
     
     public static void addImovel(String bairro, String avenida, String estado, String pessoa, String tipo,
-                                String quarto, String banheiro, String suite, String garagem, String tamanho)
+                                String quarto, String banheiro, String suite, String garagem, String tamanho,
+                                long preco)
             throws Exception{
         
-        String SQL = "INSERT INTO IMOVEL VALUES (default, ? , ? , ? , ?, ?, ?, ?, ?, ?, ?)";
-        Object parameters[] = {bairro, avenida, estado, pessoa, tipo, quarto, banheiro, suite, garagem, tamanho};
+        String SQL = "INSERT INTO IMOVEL VALUES (default, ? , ? , ? , ?, ?, ?, ?, ?, ?, ?, ?)";
+        Object parameters[] = {bairro, avenida, estado, pessoa, tipo, quarto, banheiro, suite, garagem, tamanho, preco};
         DatabaseConnector.execute(SQL, parameters);
     }
     

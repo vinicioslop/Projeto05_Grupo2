@@ -23,12 +23,13 @@ create table imovel (
     banheiro varchar(255) default '0',
     suite varchar(255) default '0',
     garagem varchar(255) default '0',
-    tamanho varchar(255) default '0'
+    tamanho varchar(255) default '0',
+    preco BIGINT not null
     );
 
 insert into imovel values
     (default, 'Jardins', 'Avenida Paulista', 'São Paulo - SP',
-    'Ciclano', 'Cobertura', '5', '3', '2', '2', '150 m²');
+    'Ciclano', 'Cobertura', '5', '3', '2', '2', '150', 20000);
 
 insert into users values
     (default, 'ADMIN', 'Ana Paula', 'anapaula', 1509442);

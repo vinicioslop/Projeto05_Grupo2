@@ -23,8 +23,9 @@
         String suite = request.getParameter("suite");
         String garagem = request.getParameter("garagem");
         String tamanho = request.getParameter("tamanho");
+        long preco = Long.parseLong(request.getParameter("preco"));
         try {
-            Imovel.addImovel(bairro, avenida, estado, pessoa, tipo, quarto, banheiro, suite, garagem, tamanho);
+            Imovel.addImovel(bairro, avenida, estado, pessoa, tipo, quarto, banheiro, suite, garagem, tamanho, preco);
             response.sendRedirect(request.getRequestURI());
         } catch (Exception e){
             error = e.getMessage();
@@ -127,6 +128,7 @@
                         <%}%>
                     </select>
                     Tamanho: <input type="text" name="tamanho" />
+                    Preço: <input type="text" name="tamanho" />
                     <input type="submit" name="formNewImovel" value="Cadastrar" />
                 </form>
             </fieldset>
@@ -145,6 +147,7 @@
                         <th>Suite</th>
                         <th>Numero de vagas da garagem</th>
                         <th>Tamanho</th>
+                        <th>Preço</th>
                         <th>Comandos</th>
                     </tr>
                 </thead>
@@ -162,6 +165,7 @@
                             <td><%= i.getSuite() %></td>
                             <td><%= i.getGaragem() %></td>
                             <td><%= i.getTamanho() %></td>
+                            <td><%= i.getPreco() %></td>
                             <td>
                                 <form>
                                     <input type="hidden" name="id" value="<%= i.getId() %>" />
