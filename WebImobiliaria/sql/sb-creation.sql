@@ -28,6 +28,22 @@ create table imovel (
     preco BIGINT not null
     );
 
+create table imovel (
+    id BIGINT not null primary key,
+    disponibilidade varchar(100) not null default 'Compra',
+    bairro varchar(200) not null,
+    avenida varchar(200) not null,
+    estado varchar(200) not null,
+    pessoa varchar(200) not null,
+    tipo varchar(100) not null,
+    quarto varchar(255) default 'Não possui',
+    banheiro varchar(255) default 'Não possui',
+    suite varchar(255) default 'Não possui',
+    garagem varchar(255) default 'Não possui',
+    tamanho varchar(255) default 'Não possui',
+    preco BIGINT not null
+    );
+
 insert into imovel values
     (default, default, 'Buritis', 'Rua Rubens Caporali Ribeiro', 'Minas Gerais - MG',
     'MIP', 'Apartamento', '4', '1', '1', '4', '211 m²', 699000);
@@ -47,7 +63,7 @@ insert into imovel values
     (default, default, 'Parque Industrial Lagoinha', 'Rua Doutor Hugo Fortes', 'São Paulo - SP',
     'Galeria Imobiliária', 'Galpão', default, '5', default, '10', '1790 m²', 7200000);
 insert into imovel values
-    (default, default, 'Moema', 'Avenida Moema', 'São Paulo - SP',
+    (default, 'Aluguel', 'Moema', 'Avenida Moema', 'São Paulo - SP',
     'Beltrano', 'Loja', default, '1', default, default, '202 m²', 2300000);
 
 insert into users values

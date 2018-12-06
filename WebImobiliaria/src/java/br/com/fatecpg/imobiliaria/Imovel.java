@@ -171,13 +171,13 @@ public class Imovel {
         return imoveis;
     }
     
-    public static void addImovel(String comercio ,String bairro, String avenida, String estado, String pessoa, String tipo,
+    public static void addImovel(String disponilibidade ,String bairro, String avenida, String estado, String pessoa, String tipo,
                                 String quarto, String banheiro, String suite, String garagem, String tamanho,
                                 long preco)
             throws Exception{
         
         String SQL = "INSERT INTO IMOVEL VALUES (default, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        Object parameters[] = {comercio, bairro, avenida, estado, pessoa, tipo, quarto, banheiro, suite, garagem, tamanho, preco};
+        Object parameters[] = {disponilibidade, bairro, avenida, estado, pessoa, tipo, quarto, banheiro, suite, garagem, tamanho, preco};
         DatabaseConnector.execute(SQL, parameters);
     }
     

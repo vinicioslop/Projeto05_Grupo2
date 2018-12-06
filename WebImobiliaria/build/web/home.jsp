@@ -19,11 +19,11 @@
     </head>
     <body>
         <div class="jumbotron">
-                <div class="container">
-                    <h1 class="display-3">Imobiliária</h1>
-                    <p>Seja Bem- Vindo!</p>
-                    <p><%@include file="WEB-INF/jspf/header.jspf" %></p>
-                </div>
+            <div class="container">
+                <h1 class="display-3">Imobiliária</h1>
+                <p>Seja Bem- Vindo!</p>
+                <p><%@include file="WEB-INF/jspf/header.jspf" %></p>
+            </div>
         </div>
         <main role="main">
             <div class="row mb-5">
@@ -32,7 +32,7 @@
                         <div class="card-body">
                             <h4 class="card-title">Ana Paula</h4>                        
                             <p class="card-text"> 
-                                
+
                             </p>
                         </div>
                         <div class="card-footer text-muted">
@@ -46,7 +46,7 @@
                         <div class="card-body">
                             <h4 class="card-title">Nicole Medina</h4>                        
                             <p class="card-text">
-                                   
+
                             </p>
                         </div>   
 
@@ -61,7 +61,7 @@
                         <div class="card-body">
                             <h4 class="card-title">Vinícius Lopes</h4>                        
                             <p class="card-text"> 
-                                
+
                             </p>
                         </div>   
 
@@ -84,5 +84,5 @@
     <script src="../../assets/js/vendor/popper.min.js"></script>
     <script src="resource/css/js/bootstrap.min.js"></script>
 
-    </body>
+</body>
 </html>

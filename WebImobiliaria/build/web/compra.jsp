@@ -52,15 +52,14 @@
     </head>
     <body>
         <div class="container">
-        <%int opcoes = 100;%>
+        <%int opcoes = 30;%>
         <h1>Imóveis</h1>
         <fieldset>
-            <legend>Cadastrar novo imóvel</legend>
+            <legend>Cadastrar novo imóvel para compra</legend>
             <form class="my-3">
                 Disponibilidade:
                 <select name="disponibilidade">
                     <option value="Compra">Compra</option>
-                    <option value="Aluguel">Aluguel</option>
                 </select><br>
                 Bairro: <input type="text" class="form-control" name="bairro" /><br>
                 Avenida: <input type="text" class="form-control" name="avenida" />  <br>
@@ -140,7 +139,7 @@
             </form>
         </fieldset>
         <br>
-        <h2>Imóveis já cadastrados</h2>
+        <h2>Imóveis disponíveis para compra</h2>
         <table border="1" id="customers">
             <thead>
                 <tr>
@@ -179,7 +178,7 @@
                     <td>
                         <form>
                             <input type="hidden" name="id" value="<%= i.getId()%>" />
-                            <input type="submit" name="formDeleteImovel" value="Remover" class="btn botaoForm mb-4"/>
+                            <input type="submit" name="formDeleteImovel" value="Remover" class="btn botaoForm mb-4"/> -->
                         </form>
                     </td>
                 </tr>

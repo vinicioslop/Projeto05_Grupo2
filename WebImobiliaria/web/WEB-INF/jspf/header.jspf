@@ -43,17 +43,15 @@
         <h3 class="display-3">
             <% User user = (User) session.getAttribute("user");%>
             Bem vindo(a), <%= user.getName()%></h3> <br>
-            <p>Cargo: <%= user.getRole()%></p>
+        <p>Cargo: <%= user.getRole()%></p>
         <input type="submit" name="formLoggoff" value="Sair" class="btn botaoForm mb-4"/><center><p>
-        <a href="<%= path%>/home.jsp">Inicio</a>
-        || <a href="<%= path%>/compra.jsp" >Imóveis</a>
-        <% if (user.getRole().equals("ADMIN")) {%>
-        || <a href="<%= path%>/admin/users.jsp" >Usuários</a>
-        <% } %>
-        </p></center>
-        <% }%>
+                <a href="<%= path%>/home.jsp">Inicio</a>
+                || <a href="<%= path%>/compra.jsp" >Compra de Imóveis</a>
+                <% if (user.getRole().equals("ADMIN")) {%>
+                || <a href="<%= path%>/admin/gerenciamento.jsp" >Gerenciamento do Site</a>
+                <% } %>
+            </p></center>
+            <% }%>
         <hr/>
     </div>    
 </div>
-
-   
