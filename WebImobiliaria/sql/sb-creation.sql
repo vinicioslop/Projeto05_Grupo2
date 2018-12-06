@@ -41,7 +41,7 @@ create table imovel (
     );
 
 drop table historico;
-create table imovel (
+create table historico (
     id BIGINT not null primary key
         generated ALWAYS as identity
         (start with 1, INCREMENT by 1),
@@ -79,7 +79,7 @@ insert into banco values
 insert into banco values
     (4, 'credito', 'TESTE', '9999 9999 9999 9999', '01/95', '05/19', 'FUNCIONARIO', '123');
 insert into banco values
-    (1, 'credito', 'TESTE', '9999 9999 9999 9999', '01/95', '05/19', 'USUARIO', '123');
+    (5, 'credito', 'TESTE', '9999 9999 9999 9999', '01/95', '05/19', 'USUARIO', '123');
 
 insert into imovel values
     (default, default, 'Buritis', 'Rua Rubens Caporali Ribeiro', 'Minas Gerais - MG',

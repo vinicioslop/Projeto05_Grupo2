@@ -72,14 +72,14 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <body>\n");
       out.write("        <div class=\"jumbotron\">\n");
       out.write("            <div class=\"container\">\n");
-      out.write("                <h1 class=\"display-3\">Imobiliária</h1>\n");
-      out.write("                <p>Seja Bem- Vindo!</p>\n");
       out.write("                <p>");
       out.write('\n');
       out.write('\n');
   String path = request.getContextPath();
+    String user_null = null;
     String errorMessage = null;
     if (request.getParameter("formLogin") != null) {
+        user_null="Não é nulo";
         String login = request.getParameter("login");
         String pass = request.getParameter("pass");
         User u = User.getUser(login, pass);
@@ -115,15 +115,36 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write('\n');
  if (session.getAttribute("user") == null) { 
       out.write("\n");
-      out.write("<form method=\"post\">\n");
-      out.write("    Login <input type=\"text\" name=\"login\" />\n");
-      out.write("    Pass: <input type=\"password\" name=\"pass\" />\n");
-      out.write("    <input type=\"submit\" name=\"formLogin\" value=\"Entrar\" />\n");
-      out.write("</form>\n");
+      out.write("<div class=\"jumbotron\">\n");
+      out.write("    <div class=\"container\">\n");
+      out.write("    <form method=\"post\">\n");
+      out.write("        <h1 class=\"display-3\">Imobiliária</h1>\n");
+      out.write("        <p>Seja Bem- Vindo! Faça login para acessar:</p>\n");
+      out.write("        Login <input type=\"text\" name=\"login\" />\n");
+      out.write("        Pass: <input type=\"password\" name=\"pass\" />\n");
+      out.write("        <input type=\"submit\" name=\"formLogin\" value=\"Entrar\" class=\"btn botaoForm mb-4\"/>\n");
+      out.write("    </form>\n");
+      out.write("    <hr/>\n");
+      out.write("    </div>    \n");
+      out.write("</div>      \n");
+if(user_null==null){
+      out.write("\n");
+      out.write("<center>\n");
+      out.write("<div class=\"container\">\n");
+      out.write("<a href=\"");
+      out.print( path);
+      out.write("/home.jsp\">Inicio</a>\n");
+      out.write("|| <a href=\"");
+      out.print( path);
+      out.write("/compra_null.jsp\" >Compra de Imóveis</a>\n");
+}
+      out.write("\n");
+      out.write("</div></center>\n");
  } else { 
       out.write("\n");
       out.write("<div class=\"jumbotron\">\n");
       out.write("    <div class=\"container\">\n");
+      out.write("        <form method=\"post\">\n");
       out.write("        <h3 class=\"display-3\">\n");
       out.write("            ");
  User user = (User) session.getAttribute("user");
@@ -142,15 +163,6 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.print( path);
       out.write("/compra.jsp\" >Compra de Imóveis</a>\n");
       out.write("                ");
- if (user.getRole()==null) {
-      out.write("\n");
-      out.write("                || <a href=\"");
-      out.print( path);
-      out.write("/compra_bkp.jsp\" >Compra de Imóveis</a>\n");
-      out.write("                ");
- } 
-      out.write("\n");
-      out.write("                ");
  if (user.getRole().equals("ADMIN")) {
       out.write("\n");
       out.write("                || <a href=\"");
@@ -163,7 +175,7 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("            ");
  }
       out.write("\n");
-      out.write("        <hr/>\n");
+      out.write("            <hr/></form>\n");
       out.write("    </div>    \n");
       out.write("</div>");
       out.write("</p>\n");

@@ -34,15 +34,25 @@
 <h3 style="color: red"><%= errorMessage%></h3>
 <% } %>
 <% if (session.getAttribute("user") == null) { %>
-<form method="post">
-    Login <input type="text" name="login" />
-    Pass: <input type="password" name="pass" />
-    <input type="submit" name="formLogin" value="Entrar" />
-</form>
+<div class="jumbotron">
+    <div class="container">
+    <form method="post">
+        <h1 class="display-3">Imobiliária</h1>
+        <p>Seja Bem- Vindo! Faça login para acessar:</p>
+        Login <input type="text" name="login" />
+        Pass: <input type="password" name="pass" />
+        <input type="submit" name="formLogin" value="Entrar" class="btn botaoForm mb-4"/>
+    </form>
+    <hr/>
+    </div>    
+</div>      
 <%if(user_null==null){%>
+<center>
+<div class="container">
 <a href="<%= path%>/home.jsp">Inicio</a>
 || <a href="<%= path%>/compra_null.jsp" >Compra de Imóveis</a>
 <%}%>
+</div></center>
 <% } else { %>
 <div class="jumbotron">
     <div class="container">

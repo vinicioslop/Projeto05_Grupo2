@@ -20,8 +20,6 @@
     <body>
         <div class="jumbotron">
             <div class="container">
-                <h1 class="display-3">Imobiliária</h1>
-                <p>Seja Bem- Vindo!</p>
                 <p><%@include file="WEB-INF/jspf/header.jspf" %></p>
             </div>
         </div>
