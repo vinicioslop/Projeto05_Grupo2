@@ -1,8 +1,8 @@
+<!DOCTYPE html>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="br.com.fatecpg.imobiliaria.Historico"%>
 <%@page import="br.com.fatecpg.imobiliaria.Imovel"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <%  String error = null;
 
     DecimalFormat decimalFormat = new DecimalFormat();
@@ -12,6 +12,7 @@
             long id = Long.parseLong(request.getParameter("id"));
             Historico.compraImovel(id);
             response.sendRedirect(request.getRequestURI());
+
         } catch (Exception e) {
             error = e.getMessage();
         }
@@ -28,7 +29,7 @@
     }
 
     if (request.getParameter("formNewImovel") != null) {
-        String disponibilidade = request.getParameter("comercio");
+        String disponibilidade = request.getParameter("disponibilidade");
         String bairro = request.getParameter("bairro");
         String avenida = request.getParameter("avenida");
         String estado = request.getParameter("estado");
@@ -193,12 +194,12 @@
                         <td><%= i.getSuite()%></td>
                         <td><%= i.getGaragem()%></td>
                         <td><%= i.getTamanho()%></td>
-                        <td><%= "R$ "+decimalFormat.format(i.getPreco())%></td>
+                        <td><%= "R$ " + decimalFormat.format(i.getPreco())%></td>
                         <td>
                             <form>
-                                <input type="hidden" name="id" value="<%= i.getId()%>" />
+                                <input type="hidden" name="id" value="<%= i.getId()%>"/>
                                 <input type="submit" name="formComprarImovel" value="Comprar" class="btn botaoForm mb-4"/>
-                                <input type="hidden" name="id" value="<%= i.getId()%>" />
+                                <input type="hidden" name="id" value="<%= i.getId()%>"/>
                                 <input type="submit" name="formAlugarImovel" value="Alugar" class="btn botaoForm mb-4"/>
                             </form>
                         </td>

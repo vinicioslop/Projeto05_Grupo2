@@ -171,12 +171,13 @@ public class Historico {
         return historico;
     }
     
-    public static void compraImovel(long id) throws Exception{
-        String SQL_1 = "INSERT INTO HISTORICO SELECT * FROM IMOVEL WHERE ID = ?";
+    public static void compraImovel(long id) throws Exception {
+        String SQL = "INSERT INTO HISTORICO SELECT * FROM IMOVEL WHERE ID = ?";
         Object parameters[] = {id};
-        DatabaseConnector.execute(SQL_1, parameters);
-        String SQL = "DELETE FROM IMOVEL WHERE ID = ?";
         DatabaseConnector.execute(SQL, parameters);
+        SQL = "DELETE FROM IMOVEL WHERE ID = ?";
+        DatabaseConnector.execute(SQL, parameters);
+        
     }
     
     public static void removeImovel(long id) throws Exception{
