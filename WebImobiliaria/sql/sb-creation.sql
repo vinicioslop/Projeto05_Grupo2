@@ -9,6 +9,40 @@ create table users (
     passwordHash BIGINT not null
 );
 
+insert into users values
+    (default, 'ADMIN', 'Ana Paula', 'anapaula', 1509442);
+insert into users values
+    (default, 'ADMIN', 'Nicolle Medina', 'nicolle', 1509442);
+insert into users values
+    (default, 'ADMIN', 'Vinícius Lopes Lima', 'vinicioslop', 1509442);
+insert into users values
+    (default, 'FUNCIONARIO', 'FUNCIONARIO', 'funcionario', 1509442);
+insert into users values
+    (default, 'USUARIO', 'USUARIO', 'usuario', 1509442);
+
+drop table banco;
+create table banco (
+    id BIGINT not null primary key,
+    tipo varchar(200) not null,
+    bandeira varchar(200) not null
+    numeracao varchar(200) not null,
+    nascimento varchar(200) not null,
+    vencimento varchar(200) not null,
+    proprietario varchar(200) not null,
+    codigo varchar(100) not null
+);
+
+insert into banco values
+    ('1', credito, 'VISA', '9999 9999 9999 9999', '01/95', '05/19', 'ANA PAULA', '123');
+insert into banco values
+    ('2', credito, 'MASTERCARD', '9999 9999 9999 9999', '01/99', '05/19', 'NICOLLE MEDINA', '123');
+insert into banco values
+    ('3', credito, 'NUBANK', '9999 9999 9999 9999', '07/99', '05/19', 'VINICIYS LOPES LIMA', '123');
+insert into banco values
+    ('4', credito, 'TESTE', '9999 9999 9999 9999', '01/95', '05/19', 'FUNCIONARIO', '123');
+insert into banco values
+    ('1', credito, 'TESTE', '9999 9999 9999 9999', '01/95', '05/19', 'Ana Paula', '123');
+
 drop table imovel;
 create table imovel (
     id BIGINT not null primary key
@@ -20,28 +54,11 @@ create table imovel (
     estado varchar(200) not null,
     pessoa varchar(200) not null,
     tipo varchar(100) not null,
-    quarto varchar(255) default 'Não possui',
-    banheiro varchar(255) default 'Não possui',
-    suite varchar(255) default 'Não possui',
-    garagem varchar(255) default 'Não possui',
-    tamanho varchar(255) default 'Não possui',
-    preco BIGINT not null
-    );
-
-drop table historico;
-create table historico (
-    id BIGINT not null primary key,
-    disponibilidade varchar(100) not null default 'Compra',
-    bairro varchar(200) not null,
-    avenida varchar(200) not null,
-    estado varchar(200) not null,
-    pessoa varchar(200) not null,
-    tipo varchar(100) not null,
-    quarto varchar(255) default 'Não possui',
-    banheiro varchar(255) default 'Não possui',
-    suite varchar(255) default 'Não possui',
-    garagem varchar(255) default 'Não possui',
-    tamanho varchar(255) default 'Não possui',
+    quarto varchar(200) default 'Não possui',
+    banheiro varchar(200) default 'Não possui',
+    suite varchar(200) default 'Não possui',
+    garagem varchar(200) default 'Não possui',
+    tamanho varchar(200) default 'Não possui',
     preco BIGINT not null
     );
 
@@ -67,13 +84,21 @@ insert into imovel values
     (default, 'Aluguel', 'Moema', 'Avenida Moema', 'São Paulo - SP',
     'Beltrano', 'Loja', default, '1', default, default, '202 m²', 2300000);
 
-insert into users values
-    (default, 'ADMIN', 'Ana Paula', 'anapaula', 1509442);
-insert into users values
-    (default, 'ADMIN', 'Nicolle Medina', 'nicolle', 1509442);
-insert into users values
-    (default, 'ADMIN', 'Vinícius Lopes Lima', 'vinicioslop', 1509442);
-insert into users values
-    (default, 'FUNCIONARIO', 'FUNCIONARIO', 'funcionario', 1509442);
-insert into users values
-    (default, 'USUARIO', 'USUARIO', 'usuario', 1509442);
+drop table historico;
+create table imovel (
+    id BIGINT not null primary key
+        generated ALWAYS as identity
+        (start with 1, INCREMENT by 1),
+    disponibilidade varchar(100) not null default 'Compra',
+    bairro varchar(200) not null,
+    avenida varchar(200) not null,
+    estado varchar(200) not null,
+    pessoa varchar(200) not null,
+    tipo varchar(100) not null,
+    quarto varchar(200) default 'Não possui',
+    banheiro varchar(200) default 'Não possui',
+    suite varchar(200) default 'Não possui',
+    garagem varchar(200) default 'Não possui',
+    tamanho varchar(200) default 'Não possui',
+    preco BIGINT not null
+    );

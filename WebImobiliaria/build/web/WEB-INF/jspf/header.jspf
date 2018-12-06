@@ -37,6 +37,7 @@
     Pass: <input type="password" name="pass" />
     <input type="submit" name="formLogin" value="Entrar" />
 </form>
+|| <a href="<%= path%>/compra_null.jsp" >Compra de Imóveis</a>
 <% } else { %>
 <div class="jumbotron">
     <div class="container">
@@ -47,9 +48,6 @@
         <input type="submit" name="formLoggoff" value="Sair" class="btn botaoForm mb-4"/><center><p>
                 <a href="<%= path%>/home.jsp">Inicio</a>
                 || <a href="<%= path%>/compra.jsp" >Compra de Imóveis</a>
-                <% if (user.getRole()==null) {%>
-                || <a href="<%= path%>/compra_bkp.jsp" >Compra de Imóveis</a>
-                <% } %>
                 <% if (user.getRole().equals("ADMIN")) {%>
                 || <a href="<%= path%>/admin/gerenciamento.jsp" >Gerenciamento do Site</a>
                 <% } %>
