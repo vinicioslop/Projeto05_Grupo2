@@ -40,6 +40,7 @@
 <% } else { %>
 <div class="jumbotron">
     <div class="container">
+        <form method="post">
         <h3 class="display-3">
             <% User user = (User) session.getAttribute("user");%>
             Bem vindo(a), <%= user.getName()%></h3> <br>
@@ -55,6 +56,6 @@
                 <% } %>
             </p></center>
             <% }%>
-        <hr/>
+            <hr/></form>
     </div>    
 </div>
