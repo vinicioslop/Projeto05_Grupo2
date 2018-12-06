@@ -57,7 +57,7 @@
         <%@include file="../WEB-INF/jspf/header.jspf" %>
     </head>
     <body><div class="container">
-            <h1>Usuários</h1>
+            <h1>Gerenciamento do Site</h1>
             <% if (session.getAttribute("user") == null) { %>
             <h2>É preciso estar autenticado para acessar este recurso</h2>
             <% } else {
@@ -111,7 +111,7 @@
                     <% } %>
                 </tbody>
             </table>
-            
+
             <br>
             <br><h2>Imóveis Comprados</h2>
             <table border="1" id="customers">
@@ -134,7 +134,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <%for(Historico h: Historico.getHistorico()){%>
+                    <%for (Historico h : Historico.getHistorico()) {%>
                     <tr>
                         <td><%= h.getId()%></td>
                         <td><%= h.getDisponibilidade()%></td>

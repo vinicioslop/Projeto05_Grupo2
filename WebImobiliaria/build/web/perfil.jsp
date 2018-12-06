@@ -2,6 +2,23 @@
 <%@page import="br.com.fatecpg.imobiliaria.Banco"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%
+    String error = null;
+    if (request.getParameter("formUpdateUser") != null) {
+        try {
+            User user = (User) session.getAttribute("user");
+            long id = user.getId();
+            String name = request.getParameter("name");
+            String login = request.getParameter("login");
+            long passwordHash = request.getParameter("pass").hashCode();
+            
+            user.updateUser(id, name, login, passwordHash);
+            response.sendRedirect(request.getRequestURI());
+        } catch (Exception e) {
+            error = e.getMessage();
+        }
+    }
+%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -25,9 +42,18 @@
             <h2>É preciso estar autenticado para acessar este recurso</h2>
             <% } else {
                 User user = (User) session.getAttribute("user");
-                if (!user.getRole().equals("ADMIN") || !user.getRole().equals("USUARIO") || !user.getRole().equals("ADMINISTRADOR")) { %>
-            <h2>Você não tem permissão para acessar este recurso!</h2>
-            <% } else {%>
+            %>
+            <br>
+            <fieldset>
+                <legend>Atualizar senha</legend>
+                <form class="my-3">
+                    <input type="hidden" name="id" value="<%= user.getId()%>" />
+                    Nome: <input type="text" class="form-control" name="name" /><br>
+                    Usuário: <input type="text" class="form-control" name="login" />   
+                    Senha: <input type="password" class="form-control" name="pass" /><br>
+                    <center><input type="submit" name="formUpdateUser" value="Enviar" class="btn botaoForm mb-4" /></center>
+                </form>
+            </fieldset>
             <br><h2>Usuário Conectado</h2>
             <table id="customers">
                 <thead>
@@ -36,7 +62,6 @@
                         <th>Papel</th>
                         <th>Nome</th>
                         <th>Login</th>
-                        <th>Comandos</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -44,12 +69,11 @@
                         <td><%= user.getId()%></td>
                         <td><%= user.getRole()%></td>
                         <td><%= user.getName()%></td>
-                        <td><%= user.getLogin()%></td></td>
+                        <td><%= user.getLogin()%></td>
                     </tr>
                 </tbody>
             </table>
             <br>
-            <% } %>
             <% }%>
         </div>
         <br><br><br>

@@ -110,6 +110,16 @@ public class User {
         DatabaseConnector.execute(SQL, parameters);
     }
     
+    public static void updateUser(long id, String name, String login, long passwordHash) throws Exception{
+        String SQL = "DELETE FROM USERS WHERE ID = ?";
+        Object parameters[] = {id};
+        DatabaseConnector.execute(SQL, parameters);
+        
+        SQL = "INSERT INTO USERS VALUES (default, ?, ?, ?)";
+        Object parameters2[] = {name, login, passwordHash};
+        DatabaseConnector.execute(SQL, parameters2);
+    }
+    
     public static void removeUser(long id) throws Exception{
         String SQL = "DELETE FROM USERS WHERE ID = ?";
         Object parameters[] = {id};

@@ -4,7 +4,7 @@
     String user_null = null;
     String errorMessage = null;
     if (request.getParameter("formLogin") != null) {
-        user_null="Não é nulo";
+        user_null = "Não é nulo";
         String login = request.getParameter("login");
         String pass = request.getParameter("pass");
         User u = User.getUser(login, pass);
@@ -17,7 +17,7 @@
         }
 
     }
-    if (request.getParameter("formLoggoff") != null) {
+    if (request.getParameter("formLogoff") != null) {
         session.removeAttribute("user");
         response.sendRedirect(request.getRequestURI());
     }
@@ -36,43 +36,41 @@
 <% if (session.getAttribute("user") == null) { %>
 <div class="jumbotron">
     <div class="container">
-    <form method="post">
-        <h1 class="display-3">Imobiliária</h1>
-        <p>Seja Bem- Vindo! Faça login para acessar:</p>
-        Login <input type="text" name="login" />
-        Pass: <input type="password" name="pass" />
-        <input type="submit" name="formLogin" value="Entrar" class="btn botaoForm mb-4"/>
-        <input type="submit" name="cadastro" value="Cadastrar - se" class="btn botaoForm mb-4"/>
-        <% if (request.getParameter("cadastro") != null){%>
-          <p><%@include file="cadastro.jspf" %></p>
-        <%}%>
-    </form>
-    <hr/>
+        <form method="post">
+            <h1 class="display-3">Imobiliária</h1>
+            <p>Seja Bem- Vindo! Faça login para acessar:</p>
+            Login <input type="text" name="login" />
+            Pass: <input type="password" name="pass" />
+            <input type="submit" name="formLogin" value="Entrar" class="btn botaoForm mb-4"/>
+            <input type="submit" name="cadastro" value="Cadastrar - se" class="btn botaoForm mb-4"/>
+        </form>
+        <hr/>
     </div>    
 </div>      
-<%if(user_null==null){%>
+<%if (user_null == null) {%>
 <center>
-<div class="container">
-<a href="<%= path%>/home.jsp">Inicio</a>
-|| <a href="<%= path%>/compra_null.jsp" >Compra de Imóveis</a>
-<%}%>
-</div></center>
-<% } else { %>
+    <div class="container">
+        <a href="<%= path%>/home.jsp">Inicio</a>
+        || <a href="<%= path%>/compra_null.jsp" >Compra de Imóveis</a>
+        <%}%>
+    </div></center>
+    <% } else { %>
 <div class="jumbotron">
     <div class="container">
         <form method="post">
-        <h3 class="display-3">
-            <% User user = (User) session.getAttribute("user");%>
-            Bem vindo(a), <%= user.getName()%></h3> <br>
-        <p>Cargo: <%= user.getRole()%></p>
-        <input type="submit" name="formLoggoff" value="Sair" class="btn botaoForm mb-4"/><center><p>
-                <a href="<%= path%>/home.jsp">Inicio</a>
-                || <a href="<%= path%>/compra.jsp" >Compra de Imóveis</a>
-                <% if (user.getRole().equals("ADMIN")) {%>
-                || <a href="<%= path%>/admin/gerenciamento.jsp" >Gerenciamento do Site</a>
-                <% } %>
-            </p></center>
-            <% }%>
+            <h3 class="display-3">
+                <% User user = (User) session.getAttribute("user");%>
+                Bem vindo(a), <%= user.getName()%></h3> <br>
+            <p>Cargo: <%= user.getRole()%></p>
+            <input type="submit" name="formLogoff" value="Sair" class="btn botaoForm mb-4"/><center><p>
+                    <a href="<%= path%>/home.jsp">Inicio</a>
+                    || <a href="<%= path%>/compra.jsp" >Compra de Imóveis</a>
+                    || <a href="<%= path%>/perfil.jsp" >Perfil</a>
+                    <% if (user.getRole().equals("ADMIN")) {%>
+                    || <a href="<%= path%>/admin/gerenciamento.jsp" >Gerenciamento do Site</a>
+                    <% } %>
+                </p></center>
+                <% }%>
             <hr/></form>
     </div>    
 </div>
