@@ -18,7 +18,6 @@
         <link href="jumbotron.css" rel="stylesheet">
     </head>
     <body>
-        
         <div class="jumbotron">
                 <div class="container">
                     <h1 class="display-3">Imobiliária</h1>
