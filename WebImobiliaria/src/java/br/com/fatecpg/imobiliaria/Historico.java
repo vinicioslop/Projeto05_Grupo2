@@ -171,16 +171,6 @@ public class Historico {
         return historico;
     }
     
-    public static void addImovel(String disponilibidade ,String bairro, String avenida, String estado, String pessoa, String tipo,
-                                String quarto, String banheiro, String suite, String garagem, String tamanho,
-                                long preco)
-            throws Exception{
-        
-        String SQL = "INSERT INTO HISTORICO VALUES (default, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        Object parameters[] = {disponilibidade, bairro, avenida, estado, pessoa, tipo, quarto, banheiro, suite, garagem, tamanho, preco};
-        DatabaseConnector.execute(SQL, parameters);
-    }
-    
     public static void compraImovel(long id) throws Exception{
         String SQL_1 = "INSERT INTO HISTORICO SELECT * FROM IMOVEL WHERE ID = ?";
         Object parameters[] = {id};
