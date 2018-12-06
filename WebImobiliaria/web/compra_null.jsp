@@ -1,10 +1,13 @@
 <%@page import="br.com.fatecpg.imobiliaria.User"%>
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="br.com.fatecpg.imobiliaria.Historico"%>
 <%@page import="br.com.fatecpg.imobiliaria.Imovel"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%  String error = null;
     int opcoes = 30;
+     DecimalFormat decimalFormat = new DecimalFormat();
+    decimalFormat.setMaximumFractionDigits(2);
 %>
 <html>
     <head>
@@ -58,7 +61,7 @@
                         <td><%= i.getSuite()%></td>
                         <td><%= i.getGaragem()%></td>
                         <td><%= i.getTamanho()%></td>
-                        <td><%= i.getPreco()%></td>
+                        <td><%= "R$ "+decimalFormat.format(i.getPreco())%></td>
                     </tr>
                     <%}%>
                 </tbody>

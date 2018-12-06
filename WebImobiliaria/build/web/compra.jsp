@@ -1,8 +1,12 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="br.com.fatecpg.imobiliaria.Historico"%>
 <%@page import="br.com.fatecpg.imobiliaria.Imovel"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%  String error = null;
+
+    DecimalFormat decimalFormat = new DecimalFormat();
+    decimalFormat.setMaximumFractionDigits(2);
     if (request.getParameter("formComprarImovel") != null) {
         try {
             long id = Long.parseLong(request.getParameter("id"));
@@ -108,7 +112,7 @@
                         <option value="Sergipe - SE">SE</option>
                         <option value="Tocantins - TO">TO</option>
                     </select> <br>
-                    Pessoa: <input type="text" class="form-control" name="pessoa" />  <br>
+                    Pessoa: <input type="text" class="form-control" name="pessoa" placeholder="Nome"/>  <br>
                     Tipo: 
                     <select name="tipo">
                         <option value="Apartamento">Apartamento</option>
@@ -148,8 +152,8 @@
                         <option value="<%=x + 1%>"><%=x + 1%></option>
                         <%}%>
                     </select><br>
-                    Tamanho: <input type="text" class="form-control" name="tamanho" /><br>
-                    Preço: <input type="text" class="form-control" name="tamanho" /><br>
+                    Tamanho: <input type="text" class="form-control" name="tamanho" placeholder="m²" /><br>
+                    Preço: <input type="text" class="form-control" name="preco" placeholder="R$" /><br>
                     <center><input type="submit" name="formNewImovel" class="btn botaoForm mb-4" value="Cadastrar" /></center>
                 </form>
             </fieldset>
@@ -189,7 +193,7 @@
                         <td><%= i.getSuite()%></td>
                         <td><%= i.getGaragem()%></td>
                         <td><%= i.getTamanho()%></td>
-                        <td><%= i.getPreco()%></td>
+                        <td><%= "R$ "+decimalFormat.format(i.getPreco())%></td>
                         <td>
                             <form>
                                 <input type="hidden" name="id" value="<%= i.getId()%>" />
