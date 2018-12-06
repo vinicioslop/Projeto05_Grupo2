@@ -28,7 +28,8 @@ create table imovel (
     preco BIGINT not null
     );
 
-create table imovel (
+drop table historico;
+create table historico (
     id BIGINT not null primary key,
     disponibilidade varchar(100) not null default 'Compra',
     bairro varchar(200) not null,

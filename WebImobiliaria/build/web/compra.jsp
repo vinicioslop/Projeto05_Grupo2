@@ -1,11 +1,22 @@
+<%@page import="br.com.fatecpg.imobiliaria.Historico"%>
 <%@page import="br.com.fatecpg.imobiliaria.Imovel"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%  String error = null;
-    if (request.getParameter("formDeleteImovel") != null) {
+    if (request.getParameter("formComprarImovel") != null) {
         try {
             long id = Long.parseLong(request.getParameter("id"));
-            Imovel.removeImovel(id);
+            Historico.compraImovel(id);
+            response.sendRedirect(request.getRequestURI());
+        } catch (Exception e) {
+            error = e.getMessage();
+        }
+    }
+    
+    if (request.getParameter("formAlugarImovel") != null) {
+        try {
+            long id = Long.parseLong(request.getParameter("id"));
+            Historico.compraImovel(id);
             response.sendRedirect(request.getRequestURI());
         } catch (Exception e) {
             error = e.getMessage();
@@ -178,7 +189,9 @@
                     <td>
                         <form>
                             <input type="hidden" name="id" value="<%= i.getId()%>" />
-                            <input type="submit" name="formDeleteImovel" value="Remover" class="btn botaoForm mb-4"/> -->
+                            <input type="submit" name="formComprarImovel" value="Comprar" class="btn botaoForm mb-4"/>
+                            <input type="hidden" name="id" value="<%= i.getId()%>" />
+                            <input type="submit" name="formAlugarImovel" value="Alugar" class="btn botaoForm mb-4"/>
                         </form>
                     </td>
                 </tr>
