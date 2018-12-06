@@ -1,8 +1,11 @@
-<!DOCTYPE html>
+<%@page import="java.util.Arrays"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="br.com.fatecpg.imobiliaria.Historico"%>
 <%@page import="br.com.fatecpg.imobiliaria.Imovel"%>
+<%@page import="br.com.fatecpg.imobiliaria.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <%  String error = null;
 
     DecimalFormat decimalFormat = new DecimalFormat();
@@ -12,7 +15,6 @@
             long id = Long.parseLong(request.getParameter("id"));
             Historico.compraImovel(id);
             response.sendRedirect(request.getRequestURI());
-
         } catch (Exception e) {
             error = e.getMessage();
         }
@@ -69,7 +71,7 @@
     <body>
         <div class="container">
             <%int opcoes = 30;%>
-            <h1>Usuários</h1>
+            
             <% if (session.getAttribute("user") == null) { %>
             <h2>É preciso estar autenticado para acessar este recurso</h2>
             <% } else { %>
@@ -81,8 +83,8 @@
                         <option value="Aluguel">Aluguel</option>
                         <option value="Compra">Compra</option>
                     </select><br>
-                    Bairro: <input type="text" class="form-control" name="bairro" /><br>
-                    Avenida: <input type="text" class="form-control" name="avenida" />  <br>
+                    Bairro: <input type="text" class="form-control" name="bairro" ><br>
+                    Avenida: <input type="text" class="form-control" name="avenida" >  <br>
                     Estado:
                     <select name="estado">
                         <option value="Acre - AC">AC</option>
@@ -113,7 +115,7 @@
                         <option value="Sergipe - SE">SE</option>
                         <option value="Tocantins - TO">TO</option>
                     </select> <br>
-                    Pessoa: <input type="text" class="form-control" name="pessoa" placeholder="Nome"/>  <br>
+                    Pessoa: <input type="text" class="form-control" name="pessoa">  <br>
                     Tipo: 
                     <select name="tipo">
                         <option value="Apartamento">Apartamento</option>
@@ -153,14 +155,14 @@
                         <option value="<%=x + 1%>"><%=x + 1%></option>
                         <%}%>
                     </select><br>
-                    Tamanho: <input type="text" class="form-control" name="tamanho" placeholder="m²" /><br>
-                    Preço: <input type="text" class="form-control" name="preco" placeholder="R$" /><br>
-                    <center><input type="submit" name="formNewImovel" class="btn botaoForm mb-4" value="Cadastrar" /></center>
+                    Tamanho: <input type="text" class="form-control" name="tamanho" > <br>
+                    Preço: <input type="text" class="form-control" name="preco"  > <br>
+                    <center><input type="submit" name="formNewImovel" class="btn botaoForm mb-4" value="Cadastrar" ></center>
                 </form>
             </fieldset>
             <br>
             <h2>Imóveis disponíveis para compra ou aluguel</h2>
-            <table border="1" id="customers">
+            <table id="customers">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -194,12 +196,12 @@
                         <td><%= i.getSuite()%></td>
                         <td><%= i.getGaragem()%></td>
                         <td><%= i.getTamanho()%></td>
-                        <td><%= "R$ " + decimalFormat.format(i.getPreco())%></td>
+                        <td><%= i.getPreco()%></td>
                         <td>
                             <form>
-                                <input type="hidden" name="id" value="<%= i.getId()%>"/>
+                                <input type="hidden" name="id" value="<%= i.getId()%>" />
                                 <input type="submit" name="formComprarImovel" value="Comprar" class="btn botaoForm mb-4"/>
-                                <input type="hidden" name="id" value="<%= i.getId()%>"/>
+                                <input type="hidden" name="id" value="<%= i.getId()%>" />
                                 <input type="submit" name="formAlugarImovel" value="Alugar" class="btn botaoForm mb-4"/>
                             </form>
                         </td>
