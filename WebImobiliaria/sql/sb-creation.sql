@@ -6,42 +6,31 @@ create table users (
     role varchar(200) not null default 'USUARIO',
     name varchar (200) not null,
     login varchar (20) not null,
-    passwordHash BIGINT not null
-);
-
-insert into users values
-    (default, 'ADMIN', 'Ana Paula', 'anapaula', 1509442);
-insert into users values
-    (default, 'ADMIN', 'Nicolle Medina', 'nicolle', 1509442);
-insert into users values
-    (default, 'ADMIN', 'Vinícius Lopes Lima', 'vinicioslop', 1509442);
-insert into users values
-    (default, 'FUNCIONARIO', 'FUNCIONARIO', 'funcionario', 1509442);
-insert into users values
-    (default, 'USUARIO', 'USUARIO', 'usuario', 1509442);
-
-drop table banco;
-create table banco (
-    id BIGINT not null primary key,
-    tipo varchar(200) not null,
-    bandeira varchar(200) not null,
-    numeracao varchar(200) not null,
-    nascimento varchar(200) not null,
-    vencimento varchar(200) not null,
-    proprietario varchar(200) not null,
-    codigo varchar(200) not null
+    passwordHash BIGINT not null,
+    tipo varchar(200) not null default 'Não cadastrado',
+    bandeira varchar(200) not null default 'Não cadastrado',
+    numeracao varchar(200) not null default 'Não cadastrado',
+    nascimento varchar(200) not null default 'Não cadastrado',
+    vencimento varchar(200) not null default 'Não cadastrado',
+    codigo varchar(200) not null default 'Não cadastrado',
+    saldo BIGINT not null default 0
     );
 
-insert into banco values
-    (1, 'credito', 'VISA', '9999 9999 9999 9999', '01/95', '05/19', 'ANA PAULA', '123');
-insert into banco values
-    (2, 'credito', 'MASTERCARD', '9999 9999 9999 9999', '01/99', '05/19', 'NICOLLE MEDINA', '123');
-insert into banco values
-    (3, 'credito', 'NUBANK', '9999 9999 9999 9999', '07/99', '05/19', 'VINICIYS LOPES LIMA', '123');
-insert into banco values
-    (4, 'credito', 'TESTE', '9999 9999 9999 9999', '01/95', '05/19', 'FUNCIONARIO', '123');
-insert into banco values
-    (5, 'credito', 'TESTE', '9999 9999 9999 9999', '01/95', '05/19', 'USUARIO', '123');
+insert into users values
+    (default, 'ADMIN', 'Ana Paula', 'anapaula', 1509442, 
+    'credito', 'VISA', '9999 9999 9999 9999', '01/95', '05/19', '123', 999999999);
+insert into users values
+    (default, 'ADMIN', 'Nicolle Medina', 'nicolle', 1509442,
+    'credito', 'MASTERCARD', '9999 9999 9999 9999', '01/99', '05/19', '123', 999999999);
+insert into users values
+    (default, 'ADMIN', 'Vinícius Lopes Lima', 'vinicioslop', 1509442,
+    'credito', 'NUBANK', '9999 9999 9999 9999', '07/99', '05/19', '123', 999999999);
+insert into users values
+    (default, 'FUNCIONARIO', 'FUNCIONARIO', 'funcionario', 1509442,
+    'credito', 'TESTE', '9999 9999 9999 9999', '01/95', '05/19', '123', 999999999);
+insert into users values
+    (default, 'USUARIO', 'USUARIO', 'usuario', 1509442,
+    'credito', 'TESTE', '9999 9999 9999 9999', '01/95', '05/19', '123', 999999999);
 
 drop table imovel;
 create table imovel (

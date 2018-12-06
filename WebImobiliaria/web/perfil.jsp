@@ -1,24 +1,6 @@
 <%@page import="br.com.fatecpg.imobiliaria.User"%>
-<%@page import="br.com.fatecpg.imobiliaria.Banco"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%
-    String error = null;
-    if (request.getParameter("formUpdateUser") != null) {
-        try {
-            User user = (User) session.getAttribute("user");
-            long id = user.getId();
-            String name = request.getParameter("name");
-            String login = request.getParameter("login");
-            long passwordHash = request.getParameter("pass").hashCode();
-
-            user.updateUser(id, name, login, passwordHash);
-            response.sendRedirect(request.getRequestURI());
-        } catch (Exception e) {
-            error = e.getMessage();
-        }
-    }
-%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -51,6 +33,9 @@
                         <th>Papel</th>
                         <th>Nome</th>
                         <th>Login</th>
+                        <th>Tipo de cartão</th>
+                        <th>Bandeira do cartão</th>
+                        <th>Saldo</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -59,6 +44,9 @@
                         <td><%= user.getRole()%></td>
                         <td><%= user.getName()%></td>
                         <td><%= user.getLogin()%></td>
+                        <td><%= user.getTipo()%></td>
+                        <td><%= user.getBandeira()%></td>
+                        <td><%= user.getSaldo()%></td>
                     </tr>
                 </tbody>
             </table>

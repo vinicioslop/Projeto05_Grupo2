@@ -20,8 +20,15 @@
         String role = request.getParameter("role");
         String login = request.getParameter("login");
         long passwordHash = request.getParameter("pass").hashCode();
+        String tipo = request.getParameter("tipo");
+        String bandeira = request.getParameter("bandeira");
+        String numeracao = request.getParameter("numeracao");
+        String nascimento = request.getParameter("nascimento");
+        String vencimento = request.getParameter("vencimento");
+        String codigo = request.getParameter("codigo");
+        long saldo = Long.parseLong(request.getParameter("saldo"));
         try {
-            User.addUser(role, name, login, passwordHash);
+            User.addUser(role, name, login, passwordHash, tipo, bandeira, numeracao, nascimento, vencimento, codigo, saldo);
             response.sendRedirect(request.getRequestURI());
         } catch (Exception e) {
             error = e.getMessage();
@@ -80,6 +87,17 @@
                     </select><br>
                     Usuário: <input type="text" class="form-control" name="login" />   
                     Senha: <input type="password" class="form-control" name="pass" /><br>
+                    Tipo de cartão:
+                    <select name="tpo">
+                        <option value="credito">Crédito</option>
+                        <option value="debito">Débito</option>
+                    </select><br>
+                    Bandeira: <input type="text" class="form-control" name="bandeira" />
+                    Numeração: <input type="text" class="form-control" name="numeracao" />
+                    Nascimento: <input type="text" class="form-control" name="nascimento" />
+                    Vencimento: <input type="text" class="form-control" name="vencimento" />
+                    Código: <input type="text" class="form-control" name="codigo" />
+                    Saldo: <input type="text" class="form-control" name="saldo" />
                     <center><input type="submit" name="formNewUser" value="Cadastrar" class="btn botaoForm mb-4" /></center>
                 </form>
             </fieldset>
