@@ -66,10 +66,11 @@
         <%int opcoes = 30;%>
         <h1>Imóveis</h1>
         <fieldset>
-            <legend>Cadastrar novo imóvel para compra</legend>
+            <legend>Cadastrar novo imóvel</legend>
             <form class="my-3">
                 Disponibilidade:
                 <select name="disponibilidade">
+                    <option value="Aluguel">Aluguel</option>
                     <option value="Compra">Compra</option>
                 </select><br>
                 Bairro: <input type="text" class="form-control" name="bairro" /><br>
@@ -150,7 +151,7 @@
             </form>
         </fieldset>
         <br>
-        <h2>Imóveis disponíveis para compra</h2>
+        <h2>Imóveis disponíveis para compra ou aluguel</h2>
         <table border="1" id="customers">
             <thead>
                 <tr>

@@ -1,8 +1,10 @@
 <%@page import="br.com.fatecpg.imobiliaria.User"%>
 <%@ page pageEncoding="UTF-8" %>
 <%  String path = request.getContextPath();
+    String user_null = null;
     String errorMessage = null;
     if (request.getParameter("formLogin") != null) {
+        user_null="Não é nulo";
         String login = request.getParameter("login");
         String pass = request.getParameter("pass");
         User u = User.getUser(login, pass);
@@ -37,7 +39,10 @@
     Pass: <input type="password" name="pass" />
     <input type="submit" name="formLogin" value="Entrar" />
 </form>
+<%if(user_null==null){%>
+<a href="<%= path%>/home.jsp">Inicio</a>
 || <a href="<%= path%>/compra_null.jsp" >Compra de Imóveis</a>
+<%}%>
 <% } else { %>
 <div class="jumbotron">
     <div class="container">

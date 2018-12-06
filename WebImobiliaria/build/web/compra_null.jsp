@@ -24,18 +24,7 @@
         <%@include file="../WEB-INF/jspf/header.jspf" %>
     </head>
     <body><div class="container">
-            <h1>Usuários</h1>
-            <% if (session.getAttribute("user") == null) { %>
-            <h2>É preciso estar autenticado para acessar este recurso</h2>
-            <% } else {
-                User user = (User) session.getAttribute("user");
-                if (user.getRole()==null) { %>
-            <h2>Você não tem permissão para acessar este recurso!</h2>
-            <% } else {
-                if (errorMessage != null) {%>
-            <h2 style="color: red"><%= error%></h2>
-            <% } %>
-            <h2>Imóveis disponíveis para compra</h2>
+            <h1>Imóveis disponíveis para compra ou aluguel</h1>
             <table border="1" id="customers">
                 <thead>
                     <tr>
@@ -74,8 +63,6 @@
                     <%}%>
                 </tbody>
             </table>
-            <% } %>
-            <% }%>
         </div>
         <br><br><br>
     <center><footer class="container">
