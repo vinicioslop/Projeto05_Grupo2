@@ -36,23 +36,34 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <link rel="icon" href="../../../../favicon.ico">
+        <!-- Bootstrap core CSS -->
+        <link href="resource/css/css/bootstrap.min.css" rel="stylesheet">
+        <link href="resource/css/css/bootstrap.css" rel="stylesheet">
+        <!-- Custom styles for this template -->
+        <link href="jumbotron.css" rel="stylesheet">
         <%@include file="WEB-INF/jspf/header.jspf" %>
         <%User user = (User) session.getAttribute("user");%>
         <title>Imobiliária - FatecPG</title>
     </head>
     <body>
+        <div class="container">
         <%int opcoes = 100;%>
         <h1>Imóveis</h1>
         <fieldset>
-            <legend>Novo Imóvel</legend>
-            <form>
+            <legend>Cadastrar novo imóvel</legend>
+            <form class="my-3">
                 Disponibilidade:
                 <select name="disponibilidade">
                     <option value="Compra">Compra</option>
                     <option value="Aluguel">Aluguel</option>
-                </select>
-                Bairro: <input type="text" name="bairro" />
-                Avenida: <input type="text" name="avenida" />  
+                </select><br>
+                Bairro: <input type="text" class="form-control" name="bairro" /><br>
+                Avenida: <input type="text" class="form-control" name="avenida" />  <br>
                 Estado:
                 <select name="estado">
                     <option value="Acre - AC">AC</option>
@@ -82,8 +93,8 @@
                     <option value="São Paulo - SP">SP</option>
                     <option value="Sergipe - SE">SE</option>
                     <option value="Tocantins - TO">TO</option>
-                </select> 
-                Pessoa: <input type="text" name="pessoa" />  
+                </select> <br>
+                Pessoa: <input type="text" class="form-control" name="pessoa" />  <br>
                 Tipo: 
                 <select name="tipo">
                     <option value="Apartamento">Apartamento</option>
@@ -94,7 +105,7 @@
                     <option value="Galpão">Galpão</option>
                     <option value="Loja">Loja</option>
                     <option value="Prédio">Prédio</option>
-                </select>  
+                </select> 
                 Quartos: 
                 <select name="quarto">
                     <option value="Não possui">Não possui</option>
@@ -110,7 +121,7 @@
                     <%}%>
                 </select>
                 Suite:
-                <select name="suite">
+                <select name="suite" >
                     <option value="Não possui">Não possui</option>
                     <% for (int x = 0; x < opcoes; x++) {%>
                     <option value="<%=x + 1%>"><%=x + 1%></option>
@@ -122,15 +133,15 @@
                     <% for (int x = 0; x < opcoes; x++) {%>
                     <option value="<%=x + 1%>"><%=x + 1%></option>
                     <%}%>
-                </select>
-                Tamanho: <input type="text" name="tamanho" />
-                Preço: <input type="text" name="tamanho" />
-                <input type="submit" name="formNewImovel" value="Cadastrar" />
+                </select><br>
+                Tamanho: <input type="text" class="form-control" name="tamanho" /><br>
+                Preço: <input type="text" class="form-control" name="tamanho" /><br>
+                <center><input type="submit" name="formNewImovel" class="btn botaoForm mb-4" value="Cadastrar" /></center>
             </form>
         </fieldset>
         <br>
-
-        <table border="1">
+        <h2>Imóveis já cadastrados</h2>
+        <table border="1" id="customers">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -168,12 +179,18 @@
                     <td>
                         <form>
                             <input type="hidden" name="id" value="<%= i.getId()%>" />
-                            <input type="submit" name="formDeleteImovel" value="Remover" />
+                            <input type="submit" name="formDeleteImovel" value="Remover" class="btn botaoForm mb-4"/>
                         </form>
                     </td>
                 </tr>
                 <%}%>
             </tbody>
         </table>
+        </div>
+             <br><br><br>
+    <center><footer class="container">
+            <p>&copy; Fatec Praia Grande-2018</p>
+        </footer></center>
     </body>
+    
 </html>
