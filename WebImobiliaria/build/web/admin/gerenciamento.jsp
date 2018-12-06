@@ -74,9 +74,9 @@
                     Nome: <input type="text" class="form-control" name="name" /><br>
                     Papel: 
                     <select name="role">
-                        <option value="ADMIN">ADMIN</option>
-                        <option value="FUNCIONARIO">FUNCIONARIO</option>
-                        <option value="USUARIO">USUARIO</option>
+                        <option value="ADMIN">Administrador</option>
+                        <option value="FUNCIONARIO">Funcionário</option>
+                        <option value="USUARIO">Usuário</option>
                     </select><br>
                     Usuário: <input type="text" class="form-control" name="login" />   
                     Senha: <input type="password" class="form-control" name="pass" /><br>
@@ -134,7 +134,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <% for (Historico h : Historico.getHistorico()) {%>
+                    <%for(Historico h: Historico.getHistorico()){%>
                     <tr>
                         <td><%= h.getId()%></td>
                         <td><%= h.getDisponibilidade()%></td>
