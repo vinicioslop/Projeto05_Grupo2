@@ -40,7 +40,7 @@
         <title>Imobiliária - FatecPG</title>
         <%@include file="../WEB-INF/jspf/header.jspf" %>
     </head>
-    <body>
+    <body><div class="container">
         <h1>Usuários</h1>
         <% if (session.getAttribute("user") == null) { %>
             <h2>É preciso estar autenticado para acessar este recurso</h2>
@@ -55,7 +55,7 @@
             <fieldset>
                 <legend>Cadastrar novo usuário</legend>
                 <form class="my-3">
-                    Nome: <input type="text" class="form-control" name="name" />
+                    Nome: <input type="text" class="form-control" name="name" /><br>
                     Papel: 
                     <select name="role">
                         <option value="ADMIN">ADMIN</option>
@@ -97,5 +97,11 @@
             </table>
             <% } %>
         <% } %>
+        
+    </div>
+         <br><br><br>
+    <center><footer class="container">
+            <p>&copy; Fatec Praia Grande-2018</p>
+        </footer></center>
     </body>
 </html>

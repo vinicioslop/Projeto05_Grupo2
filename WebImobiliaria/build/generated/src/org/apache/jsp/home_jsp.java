@@ -70,7 +70,6 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("        <link href=\"jumbotron.css\" rel=\"stylesheet\">\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("        \n");
       out.write("        <div class=\"jumbotron\">\n");
       out.write("                <div class=\"container\">\n");
       out.write("                    <h1 class=\"display-3\">Imobiliária</h1>\n");
@@ -99,7 +98,16 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
     }
 
       out.write("\n");
-      out.write("<h1>Parking WebApp</h1>\n");
+      out.write(" <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
+      out.write("        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\">\n");
+      out.write("        <meta name=\"description\" content=\"\">\n");
+      out.write("        <meta name=\"author\" content=\"\">\n");
+      out.write("        <link rel=\"icon\" href=\"../../../../favicon.ico\">\n");
+      out.write("        <!-- Bootstrap core CSS -->\n");
+      out.write("        <link href=\"resource/css/css/bootstrap.min.css\" rel=\"stylesheet\">\n");
+      out.write("        <link href=\"resource/css/css/bootstrap.css\" rel=\"stylesheet\">\n");
+      out.write("        <!-- Custom styles for this template -->\n");
+      out.write("        <link href=\"jumbotron.css\" rel=\"stylesheet\">\n");
  if (errorMessage != null) {
       out.write("\n");
       out.write("<h3 style=\"color: red\">");
@@ -116,37 +124,42 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("</form>\n");
  } else { 
       out.write("\n");
-      out.write("<form>\n");
-      out.write("    ");
+      out.write("<div class=\"jumbotron\">\n");
+      out.write("    <div class=\"container\">\n");
+      out.write("        <h3 class=\"display-3\">");
  User user = (User) session.getAttribute("user");
       out.write("\n");
-      out.write("    Bem vindo, ");
+      out.write("            Bem vindo(a), ");
       out.print( user.getName());
-      out.write(" <br>\n");
-      out.write("    Cargo: ");
+      out.write("</h3> <br>\n");
+      out.write("            <p>Cargo: ");
       out.print( user.getRole());
-      out.write("\n");
-      out.write("    <input type=\"submit\" name=\"formLoggoff\" value=\"Sair\" />\n");
-      out.write("</form>\n");
-      out.write("<h2>\n");
-      out.write("    <a href=\"");
+      out.write("</p>\n");
+      out.write("        <input type=\"submit\" name=\"formLoggoff\" value=\"Sair\" class=\"btn botaoForm mb-4\"/><center><p>\n");
+      out.write("        <a href=\"");
       out.print( path);
       out.write("/home.jsp\">Inicio</a>\n");
-      out.write("    || <a href=\"");
+      out.write("        || <a href=\"");
       out.print( path);
-      out.write("/compra.jsp\" />Imóveis</a>\n");
-      out.write("    ");
+      out.write("/compra.jsp\" >Imóveis</a>\n");
+      out.write("        ");
  if (user.getRole().equals("ADMIN")) {
       out.write("\n");
-      out.write("|| <a href=\"");
+      out.write("        || <a href=\"");
       out.print( path);
-      out.write("/admin/users.jsp\" />Usuários</a>\n");
+      out.write("/admin/users.jsp\" >Usuários</a>\n");
+      out.write("        ");
  } 
       out.write("\n");
-      out.write("</h2>\n");
+      out.write("        </p></center>\n");
+      out.write("        ");
  }
       out.write("\n");
-      out.write("<hr/>");
+      out.write("        <hr/>\n");
+      out.write("    </div>    \n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("   ");
       out.write("</p>\n");
       out.write("                </div>\n");
       out.write("        </div>\n");
@@ -157,11 +170,11 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <div class=\"card-body\">\n");
       out.write("                            <h4 class=\"card-title\">Ana Paula</h4>                        \n");
       out.write("                            <p class=\"card-text\"> \n");
-      out.write("                                Opa\n");
+      out.write("                                \n");
       out.write("                            </p>\n");
       out.write("                        </div>\n");
       out.write("                        <div class=\"card-footer text-muted\">\n");
-      out.write("                            Aqui\n");
+      out.write("                            Integrante da Equipe\n");
       out.write("                        </div>\n");
       out.write("                    </div>\n");
       out.write("\n");
@@ -170,13 +183,13 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                    <div class=\"card\">   \n");
       out.write("                        <div class=\"card-body\">\n");
       out.write("                            <h4 class=\"card-title\">Nicole Medina</h4>                        \n");
-      out.write("                            <p class=\"card-text\"> \n");
-      out.write("                                Opa\n");
+      out.write("                            <p class=\"card-text\">\n");
+      out.write("                                   \n");
       out.write("                            </p>\n");
       out.write("                        </div>   \n");
       out.write("\n");
       out.write("                        <div class=\"card-footer text-muted\">\n");
-      out.write("                            Aqui\n");
+      out.write("                            Integrante da Equipe\n");
       out.write("                        </div>\n");
       out.write("                    </div>\n");
       out.write("\n");
@@ -186,12 +199,12 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        <div class=\"card-body\">\n");
       out.write("                            <h4 class=\"card-title\">Vinícius Lopes</h4>                        \n");
       out.write("                            <p class=\"card-text\"> \n");
-      out.write("                                Opa\n");
+      out.write("                                \n");
       out.write("                            </p>\n");
       out.write("                        </div>   \n");
       out.write("\n");
       out.write("                        <div class=\"card-footer text-muted\">\n");
-      out.write("                            Aqui\n");
+      out.write("                            Integrante da Equipe\n");
       out.write("                        </div>\n");
       out.write("                    </div>\n");
       out.write("\n");
@@ -208,7 +221,8 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("    <script>window.jQuery || document.write('<script src=\"../../assets/js/vendor/jquery-slim.min.js\"><\\/script>')</script>\n");
       out.write("    <script src=\"../../assets/js/vendor/popper.min.js\"></script>\n");
       out.write("    <script src=\"resource/css/js/bootstrap.min.js\"></script>\n");
-      out.write("</body>\n");
+      out.write("\n");
+      out.write("    </body>\n");
       out.write("</html>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){

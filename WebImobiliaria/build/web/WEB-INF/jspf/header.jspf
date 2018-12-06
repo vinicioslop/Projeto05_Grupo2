@@ -20,6 +20,14 @@
         response.sendRedirect(request.getRequestURI());
     }
 %>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+<link rel="icon" href="../../../../favicon.ico">
+<link href="resource/css/css/bootstrap.min.css" rel="stylesheet">
+<link href="resource/css/css/bootstrap.css" rel="stylesheet">
+<!-- Custom styles for this template -->
+<link href="jumbotron.css" rel="stylesheet">
 <% if (errorMessage != null) {%>
 <h3 style="color: red"><%= errorMessage%></h3>
 <% } %>
@@ -30,18 +38,22 @@
     <input type="submit" name="formLogin" value="Entrar" />
 </form>
 <% } else { %>
-<form>
-    <% User user = (User) session.getAttribute("user");%>
-    Bem vindo, <%= user.getName()%> <br>
-    Cargo: <%= user.getRole()%>
-    <input type="submit" name="formLoggoff" value="Sair" />
-</form>
-<h2>
-    <a href="<%= path%>/home.jsp">Inicio</a>
-    || <a href="<%= path%>/compra.jsp" >Imóveis</a>
-    <% if (user.getRole().equals("ADMIN")) {%>
-|| <a href="<%= path%>/admin/users.jsp" >Usuários</a>
-<% } %>
-</h2>
-<% }%>
-<hr/>
+<div class="jumbotron">
+    <div class="container">
+        <h3 class="display-3">
+            <% User user = (User) session.getAttribute("user");%>
+            Bem vindo(a), <%= user.getName()%></h3> <br>
+            <p>Cargo: <%= user.getRole()%></p>
+        <input type="submit" name="formLoggoff" value="Sair" class="btn botaoForm mb-4"/><center><p>
+        <a href="<%= path%>/home.jsp">Inicio</a>
+        || <a href="<%= path%>/compra.jsp" >Imóveis</a>
+        <% if (user.getRole().equals("ADMIN")) {%>
+        || <a href="<%= path%>/admin/users.jsp" >Usuários</a>
+        <% } %>
+        </p></center>
+        <% }%>
+        <hr/>
+    </div>    
+</div>
+
+   

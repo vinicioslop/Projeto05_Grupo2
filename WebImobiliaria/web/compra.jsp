@@ -51,6 +51,7 @@
         <title>Imobiliária - FatecPG</title>
     </head>
     <body>
+        <div class="container">
         <%int opcoes = 100;%>
         <h1>Imóveis</h1>
         <fieldset>
@@ -135,11 +136,11 @@
                 </select><br>
                 Tamanho: <input type="text" class="form-control" name="tamanho" /><br>
                 Preço: <input type="text" class="form-control" name="tamanho" /><br>
-                <input type="submit" name="formNewImovel" class="btn botaoForm mb-4" value="Cadastrar" />
+                <center><input type="submit" name="formNewImovel" class="btn botaoForm mb-4" value="Cadastrar" /></center>
             </form>
         </fieldset>
         <br>
-
+        <h2>Imóveis já cadastrados</h2>
         <table border="1" id="customers">
             <thead>
                 <tr>
@@ -178,12 +179,18 @@
                     <td>
                         <form>
                             <input type="hidden" name="id" value="<%= i.getId()%>" />
-                            <input type="submit" name="formDeleteImovel" value="Remover" />
+                            <input type="submit" name="formDeleteImovel" value="Remover" class="btn botaoForm mb-4"/>
                         </form>
                     </td>
                 </tr>
                 <%}%>
             </tbody>
         </table>
+        </div>
+             <br><br><br>
+    <center><footer class="container">
+            <p>&copy; Fatec Praia Grande-2018</p>
+        </footer></center>
     </body>
+    
 </html>

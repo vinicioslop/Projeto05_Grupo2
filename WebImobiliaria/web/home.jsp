@@ -83,5 +83,6 @@
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
     <script src="../../assets/js/vendor/popper.min.js"></script>
     <script src="resource/css/js/bootstrap.min.js"></script>
-</body>
+
+    </body>
 </html>
