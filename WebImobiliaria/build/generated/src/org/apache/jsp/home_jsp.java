@@ -79,7 +79,7 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
     String user_null = null;
     String errorMessage = null;
     if (request.getParameter("formLogin") != null) {
-        user_null="Não é nulo";
+        user_null = "Não é nulo";
         String login = request.getParameter("login");
         String pass = request.getParameter("pass");
         User u = User.getUser(login, pass);
@@ -92,7 +92,7 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
         }
 
     }
-    if (request.getParameter("formLoggoff") != null) {
+    if (request.getParameter("formLogoff") != null) {
         session.removeAttribute("user");
         response.sendRedirect(request.getRequestURI());
     }
@@ -117,62 +117,71 @@ public final class home_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("<div class=\"jumbotron\">\n");
       out.write("    <div class=\"container\">\n");
-      out.write("    <form method=\"post\">\n");
-      out.write("        <h1 class=\"display-3\">Imobiliária</h1>\n");
-      out.write("        <p>Seja Bem- Vindo! Faça login para acessar:</p>\n");
-      out.write("        Login <input type=\"text\" name=\"login\" />\n");
-      out.write("        Pass: <input type=\"password\" name=\"pass\" />\n");
-      out.write("        <input type=\"submit\" name=\"formLogin\" value=\"Entrar\" class=\"btn botaoForm mb-4\"/>\n");
-      out.write("    </form>\n");
-      out.write("    <hr/>\n");
+      out.write("        <form method=\"post\">\n");
+      out.write("            <h1 class=\"display-3\">Imobiliária</h1>\n");
+      out.write("            <p>Seja Bem- Vindo! Faça login para acessar:</p>\n");
+      out.write("            Login <input type=\"text\" name=\"login\" />\n");
+      out.write("            Pass: <input type=\"password\" name=\"pass\" />\n");
+      out.write("            <input type=\"submit\" name=\"formLogin\" value=\"Entrar\" class=\"btn botaoForm mb-4\"/>\n");
+      out.write("           \n");
+      out.write("        </form>\n");
+      out.write("        <hr/>\n");
       out.write("    </div>    \n");
       out.write("</div>      \n");
-if(user_null==null){
+if (user_null == null) {
       out.write("\n");
       out.write("<center>\n");
-      out.write("<div class=\"container\">\n");
-      out.write("<a href=\"");
+      out.write("    <div class=\"container\">\n");
+      out.write("        <a href=\"");
       out.print( path);
       out.write("/home.jsp\">Inicio</a>\n");
-      out.write("|| <a href=\"");
+      out.write("        || <a href=\"");
       out.print( path);
       out.write("/compra_null.jsp\" >Compra de Imóveis</a>\n");
+      out.write("        || <a href=\"");
+      out.print( path);
+      out.write("/cadastro_usuario.jsp\" >Cadastre - se</a>\n");
+      out.write("        ");
 }
       out.write("\n");
-      out.write("</div></center>\n");
+      out.write("    </div></center>\n");
+      out.write("    ");
  } else { 
       out.write("\n");
       out.write("<div class=\"jumbotron\">\n");
       out.write("    <div class=\"container\">\n");
       out.write("        <form method=\"post\">\n");
-      out.write("        <h3 class=\"display-3\">\n");
-      out.write("            ");
+      out.write("            <h3 class=\"display-3\">\n");
+      out.write("                ");
  User user = (User) session.getAttribute("user");
       out.write("\n");
-      out.write("            Bem vindo(a), ");
+      out.write("                Bem vindo(a), ");
       out.print( user.getName());
       out.write("</h3> <br>\n");
-      out.write("        <p>Cargo: ");
+      out.write("            <p>Cargo: ");
       out.print( user.getRole());
       out.write("</p>\n");
-      out.write("        <input type=\"submit\" name=\"formLoggoff\" value=\"Sair\" class=\"btn botaoForm mb-4\"/><center><p>\n");
-      out.write("                <a href=\"");
+      out.write("            <input type=\"submit\" name=\"formLogoff\" value=\"Sair\" class=\"btn botaoForm mb-4\"/><center><p>\n");
+      out.write("                    <a href=\"");
       out.print( path);
       out.write("/home.jsp\">Inicio</a>\n");
-      out.write("                || <a href=\"");
+      out.write("                    || <a href=\"");
       out.print( path);
       out.write("/compra.jsp\" >Compra de Imóveis</a>\n");
-      out.write("                ");
+      out.write("                    || <a href=\"");
+      out.print( path);
+      out.write("/perfil.jsp\" >Perfil</a>\n");
+      out.write("                    ");
  if (user.getRole().equals("ADMIN")) {
       out.write("\n");
-      out.write("                || <a href=\"");
+      out.write("                    || <a href=\"");
       out.print( path);
       out.write("/admin/gerenciamento.jsp\" >Gerenciamento do Site</a>\n");
-      out.write("                ");
+      out.write("                    ");
  } 
       out.write("\n");
-      out.write("            </p></center>\n");
-      out.write("            ");
+      out.write("                </p></center>\n");
+      out.write("                ");
  }
       out.write("\n");
       out.write("            <hr/></form>\n");
