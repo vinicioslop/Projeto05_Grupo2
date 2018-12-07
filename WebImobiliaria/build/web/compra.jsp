@@ -14,6 +14,7 @@
         try {
             long id = Long.parseLong(request.getParameter("id"));
             Historico.compraImovel(id);
+            Imovel.removeImovel(id);
             response.sendRedirect(request.getRequestURI());
         } catch (Exception e) {
             error = e.getMessage();
@@ -65,19 +66,20 @@
         <!-- Custom styles for this template -->
         <link href="jumbotron.css" rel="stylesheet">
         <%@include file="WEB-INF/jspf/header.jspf" %>
-        <%User user = (User) session.getAttribute("user");%>
         <title>Imobiliária - FatecPG</title>
     </head>
     <body>
         <div class="container">
             <%int opcoes = 30;%>
-            
+
             <% if (session.getAttribute("user") == null) { %>
             <h2>É preciso estar autenticado para acessar este recurso</h2>
-            <% } else { %>
+            <% } else {
+                User user = (User) session.getAttribute("user");
+            %>
             <fieldset>
                 <legend>Cadastrar novo imóvel</legend>
-                <form class="my-3">
+                <form method="post" class="my-3">
                     Disponibilidade:
                     <select name="disponibilidade">
                         <option value="Aluguel">Aluguel</option>
@@ -200,9 +202,9 @@
                         <td>
                             <form>
                                 <input type="hidden" name="id" value="<%= i.getId()%>" />
-                                <input type="submit" name="formComprarImovel" value="Comprar" class="btn botaoForm mb-4"/>
+                                <input type="submit" name="formComprarImovel" class="btn botaoForm mb-4" value="Comprar" />
                                 <input type="hidden" name="id" value="<%= i.getId()%>" />
-                                <input type="submit" name="formAlugarImovel" value="Alugar" class="btn botaoForm mb-4"/>
+                                <input type="submit" name="formAlugarImovel" class="btn botaoForm mb-4" value="Alugar"/>
                             </form>
                         </td>
                     </tr>

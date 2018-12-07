@@ -12,12 +12,18 @@
     String error = null;
     if (request.getParameter("cadastro_usuario") != null) {
 
-        String name = request.getParameter("name");
         String role = request.getParameter("role");
+        String name = request.getParameter("name");
         String login = request.getParameter("login");
         long passwordHash = request.getParameter("pass").hashCode();
+        String tipo = request.getParameter("tipo");
+        String bandeira = request.getParameter("bandeira");
+        String numeracao = request.getParameter("numeracao");
+        String nascimento = request.getParameter("nascimento");
+        String vencimento = request.getParameter("vencimento");
+        String codigo = request.getParameter("codigo");
         try {
-            User.addUser(role, name, login, passwordHash);
+            User.addUser(role, name, login, passwordHash, tipo, bandeira, numeracao, nascimento, vencimento, codigo, saldo);
             response.sendRedirect(request.getRequestURI());
             
         } catch (Exception e) {

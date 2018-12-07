@@ -35,6 +35,7 @@
                         <th>Login</th>
                         <th>Tipo de cartão</th>
                         <th>Bandeira do cartão</th>
+                        <th>Data de Nascimento</th>
                         <th>Saldo</th>
                     </tr>
                 </thead>
@@ -46,6 +47,7 @@
                         <td><%= user.getLogin()%></td>
                         <td><%= user.getTipo()%></td>
                         <td><%= user.getBandeira()%></td>
+                        <td><%= user.getNascimento()%></td>
                         <td><%= user.getSaldo()%></td>
                     </tr>
                 </tbody>

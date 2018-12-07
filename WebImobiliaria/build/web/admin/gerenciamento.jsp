@@ -16,8 +16,8 @@
     }
 
     if (request.getParameter("formNewUser") != null) {
-        String name = request.getParameter("name");
         String role = request.getParameter("role");
+        String name = request.getParameter("name");
         String login = request.getParameter("login");
         long passwordHash = request.getParameter("pass").hashCode();
         String tipo = request.getParameter("tipo");
@@ -88,9 +88,9 @@
                     Usuário: <input type="text" class="form-control" name="login" />   
                     Senha: <input type="password" class="form-control" name="pass" /><br>
                     Tipo de cartão:
-                    <select name="tpo">
-                        <option value="credito">Crédito</option>
-                        <option value="debito">Débito</option>
+                    <select name="tipo">
+                        <option value="Crédito">Crédito</option>
+                        <option value="Débito">Débito</option>
                     </select><br>
                     Bandeira: <input type="text" class="form-control" name="bandeira" />
                     Numeração: <input type="text" class="form-control" name="numeracao" />

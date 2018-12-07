@@ -18,19 +18,19 @@ create table users (
 
 insert into users values
     (default, 'ADMIN', 'Ana Paula', 'anapaula', 1509442, 
-    'credito', 'VISA', '9999 9999 9999 9999', '01/95', '05/19', '123', 999999999);
+    'Crédito', 'VISA', '9999 9999 9999 9999', '01/01/95', '05/19', '123', 999999999);
 insert into users values
     (default, 'ADMIN', 'Nicolle Medina', 'nicolle', 1509442,
-    'credito', 'MASTERCARD', '9999 9999 9999 9999', '01/99', '05/19', '123', 999999999);
+    'Débito', 'MASTERCARD', '9999 9999 9999 9999', '01/01/95', '05/19', '123', 999999999);
 insert into users values
     (default, 'ADMIN', 'Vinícius Lopes Lima', 'vinicioslop', 1509442,
-    'credito', 'NUBANK', '9999 9999 9999 9999', '07/99', '05/19', '123', 999999999);
+    'Débito', 'NUBANK', '9999 9999 9999 9999', '07/10/99', '05/19', '123', 999999999);
 insert into users values
     (default, 'FUNCIONARIO', 'FUNCIONARIO', 'funcionario', 1509442,
-    'credito', 'TESTE', '9999 9999 9999 9999', '01/95', '05/19', '123', 999999999);
+    'Crédito', 'TESTE', '9999 9999 9999 9999', '01/01/95', '05/19', '123', 999999999);
 insert into users values
     (default, 'USUARIO', 'USUARIO', 'usuario', 1509442,
-    'credito', 'TESTE', '9999 9999 9999 9999', '01/95', '05/19', '123', 999999999);
+    'Débito', 'TESTE', '9999 9999 9999 9999', '01/01/95', '05/19', '123', 999999999);
 
 drop table imovel;
 create table imovel (

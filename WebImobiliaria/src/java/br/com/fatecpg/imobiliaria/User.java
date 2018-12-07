@@ -188,8 +188,8 @@ public class User {
         return users;
     }
 
-    public static void addUser(String role, String name, String login, long passwordHash, String tipo, String bandeira, String numeracao, String nascimento, String vencimento, String codigo, long saldo) throws Exception {
-        String SQL = "INSERT INTO USERS VALUES (default, ? , ? , ? , ? )";
+    public static void addUser(String role, String name, String login, long passwordHash, String tipo, String bandeira, String numeracao, String nascimento, String vencimento, String codigo, long saldo) throws Exception{
+        String SQL = "INSERT INTO USERS VALUES (default, ? , ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         Object parameters[] = {role, name, login, passwordHash, tipo, bandeira, numeracao, nascimento, vencimento, codigo, saldo};
         DatabaseConnector.execute(SQL, parameters);
     }
