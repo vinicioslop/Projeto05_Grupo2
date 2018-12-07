@@ -7,7 +7,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%  String error = null;
-
     DecimalFormat decimalFormat = new DecimalFormat();
     decimalFormat.setMaximumFractionDigits(2);
     if (request.getParameter("formComprarImovel") != null) {
@@ -198,7 +197,7 @@
                         <td><%= i.getSuite()%></td>
                         <td><%= i.getGaragem()%></td>
                         <td><%= i.getTamanho()%></td>
-                        <td><%= i.getPreco()%></td>
+                        <td><%= "R$"+decimalFormat.format(i.getPreco())%></td>
                         <td>
                             <form>
                                 <input type="hidden" name="id" value="<%= i.getId()%>" />
